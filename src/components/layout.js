@@ -9,8 +9,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import { HummContext } from "gatsby-plugin-hummhive-react-web-data"
 import Header from "./header"
-import "./bootstrap.min.css"
-import "./layout.css"
+import "../../static/bootstrap.min.css"
+import "../../static/layout.css"
 
 const Layout = ({ children, header }) => {
   const { state, actions } = React.useContext(HummContext)

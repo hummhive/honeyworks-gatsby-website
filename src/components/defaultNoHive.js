@@ -1,7 +1,7 @@
 import React from "react"
 import { FiHexagon } from "react-icons/fi"
-import "./bootstrap.min.css"
-import "./layout.css"
+import "../../static/bootstrap.min.css"
+import "../../static/layout.css"
 
 const DefaultNoHive = () => {
   return (

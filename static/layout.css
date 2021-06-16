@@ -21,7 +21,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .custombg{
-  background: url('../images/login-bg.jpg') no-repeat center center/cover;
+  background: url('../src/images/login-bg.jpg') no-repeat center center/cover;
   width: 40%;
 }
 
