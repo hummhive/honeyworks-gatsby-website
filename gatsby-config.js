@@ -4,7 +4,6 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-hummhive-react-web-data",
-    "gatsby-plugin-workerize-loader",
     `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-filesystem`,
