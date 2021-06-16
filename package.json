@@ -66,9 +66,9 @@
   },
   "dependencies": {
     "@fontsource/nunito": "^4.2.1",
-    "@hummhive/react-web-data": "file:../hummhive-react-data/hummhive-react-web-data-1.0.4.tgz",
     "babel-plugin-styled-components": "^1.12.0",
     "bootstrap": "^4.6.0",
+    "gatsby-plugin-hummhive-react-web-data": "file:../gatsby-plugin-hummhive-react-data/gatsby-plugin-hummhive-react-web-data-1.0.2.tgz",
     "gatsby-transformer-json": "^3.7.1",
     "path-browserify": "^1.0.1",
     "react-bootstrap": "^1.5.0",

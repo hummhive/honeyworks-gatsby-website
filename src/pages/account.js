@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { navigate } from "gatsby"
 import Layout from "../components/layout"
-import { HummContext } from "@hummhive/react-web-data"
+import { HummContext } from "gatsby-plugin-hummhive-react-web-data"
 import { FiLock, FiUnlock } from "react-icons/fi"
 import SEO from "../components/seo"
 

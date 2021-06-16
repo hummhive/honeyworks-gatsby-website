@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import { FiHexagon, FiCopy } from "react-icons/fi"
 import { FaEye } from "react-icons/fa"
 import { CopyToClipboard } from "react-copy-to-clipboard"
-import { HummContext } from "@hummhive/react-web-data"
+import { HummContext } from "gatsby-plugin-hummhive-react-web-data"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 

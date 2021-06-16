@@ -5,10 +5,5 @@
  */
 
 // You can delete this file if you're not using it
-import React from "react"
-import HummProviderWrapper from "./src/components/HummProviderWrapper"
-
-// we cannot execute static queries outside of the `src` dir so we can define the
-// component there and assign it here
-export const wrapRootElement = ({ element }) =>
-  <HummProviderWrapper>{element}</HummProviderWrapper>;
+import "@fontsource/nunito" // Defaults to weight 400.
+import "@fontsource/nunito/900.css" // Weight 500.

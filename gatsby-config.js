@@ -1,6 +1,9 @@
 module.exports = {
+  flags: {
+    DEV_SSR: false
+  },
   plugins: [
-    // "gatsby-plugin-hummhive-react-web-data",
+    "gatsby-plugin-hummhive-react-web-data",
     "gatsby-plugin-workerize-loader",
     `gatsby-transformer-json`,
     {
@@ -11,13 +14,6 @@ module.exports = {
       },
     },
     `gatsby-transformer-json`,
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     name: `capabilities`,
-    //     path: `${__dirname}/config/capabilities`,
-    //   },
-    // },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-create-client-paths`,
@@ -44,15 +40,5 @@ module.exports = {
         icon: `src/images/logo.png`, // This path is relative to the root of the site.
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-breadcrumb`,
-    //   options: {
-    //     useAutoGen: true,
-    //     exclude: [`/story`],
-    //   },
-    // },
-    // // this (optional) plugin enables Progressive Web App + Offline functionality
-    // // To learn more, visit: https://gatsby.dev/offline
-    // // `gatsby-plugin-offline`,
   ],
 }

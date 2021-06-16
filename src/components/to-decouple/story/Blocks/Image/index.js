@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Loader from "../../../../Loader"
-import { HummHooks } from "@hummhive/react-web-data"
+import { HummHooks } from "gatsby-plugin-hummhive-react-web-data"
 import { Image, Container } from "./styled"
 
 const path = require("path")

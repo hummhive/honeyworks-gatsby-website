@@ -1,6 +1,6 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import { HummContext } from "@hummhive/react-web-data"
+import { HummContext } from "gatsby-plugin-hummhive-react-web-data"
 import { FiHexagon } from "react-icons/fi"
 import React from "react"
 

@@ -5,7 +5,7 @@ import Moment from "react-moment"
 import { FiClock } from "react-icons/fi"
 import Layout from "../components/layout"
 import Loader from "../components/Loader"
-import { HummContext } from "@hummhive/react-web-data"
+import { HummContext } from "gatsby-plugin-hummhive-react-web-data"
 
 const Home = () => {
   const { state, actions } = React.useContext(HummContext)

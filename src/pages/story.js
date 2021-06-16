@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "../components/layout"
 import PropTypes from "prop-types"
-import { HummContext } from "@hummhive/react-web-data"
+import { HummContext } from "gatsby-plugin-hummhive-react-web-data"
 import Moment from "react-moment"
 import SEO from "../components/seo"
 import Loader from "../components/Loader"
