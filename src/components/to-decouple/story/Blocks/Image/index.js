@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Loader from "../../../../Loader"
-// import { HummHooks } from "@hummhive/react-web-data"
+import { HummHooks } from "@hummhive/react-web-data"
 import { Image, Container } from "./styled"
 
 const path = require("path")
@@ -11,7 +11,7 @@ const ImageBlock = props => {
   const filename = path.basename(props.element.filename, extension)
   const variantname = `${filename}-large${extension}`
 
-  const { blob, isLoading, error } = {} //HummHooks.useBlob(variantname)
+  const { blob, isLoading, error } = HummHooks.useBlob(variantname)
 
   const [height, setHeight] = React.useState(null)
   const ref = React.useRef(null)

@@ -49,7 +49,8 @@ exports.onCreateWebpackConfig = ({ actions, loaders, getConfig }) => {
       alias: {
         'react': path.resolve(__dirname, './node_modules/react'),
         'react-dom': path.resolve(__dirname, './node_modules/react-dom'),
-      }
+      },
+      fallback: { "path": require.resolve("path-browserify") }
     },
     // plugins: [
     //   new webpack.ProvidePlugin({

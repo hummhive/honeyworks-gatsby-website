@@ -11,5 +11,5 @@ import "@fontsource/nunito/900.css" // Weight 500.
 
 // we cannot execute static queries outside of the `src` dir so we can define the
 // component there and assign it here
-// export const wrapRootElement = ({ element }) =>
-//   <HummProviderWrapper>{element}</HummProviderWrapper>;
+export const wrapRootElement = ({ element }) =>
+  <HummProviderWrapper>{element}</HummProviderWrapper>;

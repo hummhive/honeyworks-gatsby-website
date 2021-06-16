@@ -1,14 +1,12 @@
 import React, { useState } from "react"
 import { navigate } from "gatsby"
 import Layout from "../components/layout"
-// import { HummContext } from "@hummhive/react-web-data"
+import { HummContext } from "@hummhive/react-web-data"
 import { FiLock, FiUnlock } from "react-icons/fi"
 import SEO from "../components/seo"
 
 const Account = () => {
-  const state = {}
-  const actions = {}
-  // const { state, actions } = React.useContext(HummContext)
+  const { state, actions } = React.useContext(HummContext)
   const { memberKeysBase64 } = state
   const [showKey, setShowKey] = useState(false)
   const [error, setError] = useState(false)

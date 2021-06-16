@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "../components/layout"
 import PropTypes from "prop-types"
-// import { HummContext } from "@hummhive/react-web-data"
+import { HummContext } from "@hummhive/react-web-data"
 import Moment from "react-moment"
 import SEO from "../components/seo"
 import Loader from "../components/Loader"
@@ -9,18 +9,13 @@ import { FiClock } from "react-icons/fi"
 import DocumentBuilder from "../components/to-decouple/story/documentBuilder"
 
 const Story = ({ id }) => {
-  const state = {}
-  const actions = {}
-  // const { state, actions } = React.useContext(HummContext)
+  const { state, actions } = React.useContext(HummContext)
   const isLoading = state.loadingStories.some(loadingId => loadingId === id)
   const story = state.stories[id]
 
   React.useEffect(() => {
     if (!story && !isLoading) actions.getStory(id)
   }, [])
-
-  // if (isLoading) return "Loading..."
-  // if (!story) return "Story not found"
 
   return (
     <Layout>

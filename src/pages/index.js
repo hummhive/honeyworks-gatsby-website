@@ -5,17 +5,14 @@ import Moment from "react-moment"
 import { FiClock } from "react-icons/fi"
 import Layout from "../components/layout"
 import Loader from "../components/Loader"
-// import { HummContext } from "@hummhive/react-web-data"
-// console.log(HummContext)
+import { HummContext } from "@hummhive/react-web-data"
 
 const Home = () => {
-  const state = {}
-  const actions = {}
-  // const { state, actions } = React.useContext(HummContext)
+  const { state, actions } = React.useContext(HummContext)
   const { storyIndex } = state
 
   React.useEffect(() => {
-    // if (!storyIndex) actions.getStoryIndex()
+    if (!storyIndex) actions.getStoryIndex()
   }, [])
 
   return (

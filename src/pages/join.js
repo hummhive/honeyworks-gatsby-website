@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import { FiHexagon, FiCopy } from "react-icons/fi"
 import { FaEye } from "react-icons/fa"
 import { CopyToClipboard } from "react-copy-to-clipboard"
-// import { HummContext } from "@hummhive/react-web-data"
+import { HummContext } from "@hummhive/react-web-data"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -12,9 +12,7 @@ import SEO from "../components/seo"
 // const checkoutUrl = "https://stripe-dev.hummhive.workers.dev/market/checkout/session/create"
 
 function Join() {
-  const state = {}
-  const actions = {}
-  // const { state, actions } = React.useContext(HummContext)
+  const { state, actions } = React.useContext(HummContext)
   const { hive, groups, memberKeysBase64 } = state
 
   const [username, setUsername] = useState("")

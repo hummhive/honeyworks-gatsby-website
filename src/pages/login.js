@@ -1,16 +1,13 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { navigate, Link } from "gatsby"
-// import { HummContext } from "@hummhive/react-web-data"
-// import { isLoggedIn, login } from "../services/auth"
+import { HummContext } from "@hummhive/react-web-data"
 import { FiHexagon } from "react-icons/fi"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 function Login() {
-  const state = {}
-  const actions = {}
-  // const { state, actions } = React.useContext(HummContext)
+  const { state, actions } = React.useContext(HummContext)
   const { hive } = state
   const [base64KeySet, setBase64KeySet] = useState("")
   const [error, setError] = useState(false)

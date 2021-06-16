@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import * as a from "@hummhive/react-web-data"
+import { HummProvider } from "@hummhive/react-web-data"
 
 export default ({ children }) => {
   const { coreStaticDataJson: staticCoreData } = useStaticQuery(graphql`
@@ -16,8 +16,7 @@ export default ({ children }) => {
     }
   `)
   
-  return children
-  // return (
-  //   <HummProvider staticCoreData={staticCoreData}>{children}</HummProvider>
-  // )
+  return (
+    <HummProvider staticCoreData={staticCoreData}>{children}</HummProvider>
+  )
 }

@@ -8,12 +8,10 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
-// import { HummContext } from "@hummhive/react-web-data"
+import { HummContext } from "@hummhive/react-web-data"
 
 function SEO({ description, lang, meta, title }) {
-  const state = {}
-  const actions = {}
-  // const { state } = React.useContext(HummContext)
+  const { state } = React.useContext(HummContext)
 
   if (!state.hive) return null
 

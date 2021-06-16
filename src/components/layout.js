@@ -7,18 +7,16 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-// import { HummContext } from "@hummhive/react-web-data"
+import { HummContext } from "@hummhive/react-web-data"
 import Header from "./header"
 import "./bootstrap.min.css"
 import "./layout.css"
 
 const Layout = ({ children, header }) => {
-  const state = {}
-  const actions = {}
-  // const { state, actions } = React.useContext(HummContext)
+  const { state, actions } = React.useContext(HummContext)
 
   React.useEffect(() => {
-    // if (!state.hive) init()
+    if (!state.hive) init()
   }, [])
 
   const init = () => {
