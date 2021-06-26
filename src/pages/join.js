@@ -1,27 +1,27 @@
-import React, { useState } from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
-import { FiHexagon, FiCopy } from "react-icons/fi"
-import { FaEye } from "react-icons/fa"
-import { CopyToClipboard } from "react-copy-to-clipboard"
-import { HummContext } from "gatsby-plugin-hummhive-react-web-data"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import { Link } from "gatsby";
+import { FiHexagon, FiCopy } from "react-icons/fi";
+import { FaEye } from "react-icons/fa";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import { HummContext } from "gatsby-plugin-hummhive-react-web-data";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 // const paymentCapabilityId = "honeyworksCloudStripe"
 // const checkoutUrl = "https://stripe-dev.hummhive.workers.dev/market/checkout/session/create"
 
 function Join() {
-  const { state, actions } = React.useContext(HummContext)
-  const { hive, groups, memberKeysBase64 } = state
+  const { state, actions } = React.useContext(HummContext);
+  const { hive, groups, memberKeysBase64 } = state;
 
-  const [username, setUsername] = useState("")
-  const [email, setEmail] = useState("")
-  const [displayCode, setDisplayCode] = useState(false)
-  const [joinedSuccess, setJoinedSuccess] = useState(false)
-  const [copySuccess, setCopySuccess] = useState("COPY")
-  const [selectedGroupId, setSelectedGroupId] = useState(null)
-  const [error, setError] = useState(false)
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [displayCode, setDisplayCode] = useState(false);
+  const [joinedSuccess, setJoinedSuccess] = useState(false);
+  const [copySuccess, setCopySuccess] = useState("COPY");
+  const [selectedGroupId, setSelectedGroupId] = useState(null);
+  const [error, setError] = useState(false);
 
   // const selectedGroup = groups?.find(g => g.id === selectedGroupId)
 
@@ -35,24 +35,24 @@ function Join() {
   //   })
 
   React.useEffect(() => {
-    if (!groups) actions.getGroups()
-  }, [])
+    if (!groups) actions.getGroups();
+  }, []);
 
   React.useEffect(() => {
     if (!selectedGroupId && groups) {
-      setSelectedGroupId(groups[0].id)
+      setSelectedGroupId(groups[0].id);
     }
-  }, [groups])
+  }, [groups]);
 
   const handleSubmit = async e => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      await actions.joinHive(hive, username, email, selectedGroupId)
-      setJoinedSuccess(true)
+      await actions.joinHive(hive, username, email, selectedGroupId);
+      setJoinedSuccess(true);
     } catch (err) {
-      setError(err.message || JSON.stringify(err))
+      setError(err.message || JSON.stringify(err));
     }
-  }
+  };
 
   // const handleStripe = async e => {
   //     e.preventDefault()
@@ -248,9 +248,9 @@ function Join() {
         </div>
       </div>
     </Layout>
-  )
+  );
 }
 Join.propTypes = {
   location: PropTypes.object,
-}
-export default Join
+};
+export default Join;

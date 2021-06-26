@@ -1,6 +1,6 @@
-import React from "react"
-import Blocks from "./Blocks"
-import Leafs from "./Leafs"
+import React from "react";
+import Blocks from "./Blocks";
+import Leafs from "./Leafs";
 
 function DocumentBuilder({ element }) {
   if (element.children) {
@@ -10,10 +10,10 @@ function DocumentBuilder({ element }) {
           <DocumentBuilder key={i} element={child} />
         ))}
       </Blocks>
-    )
+    );
   } else {
-    return <Leafs leaf={element}>{element.text}</Leafs>
+    return <Leafs leaf={element}>{element.text}</Leafs>;
   }
 }
 
-export default DocumentBuilder
+export default DocumentBuilder;

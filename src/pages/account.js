@@ -1,15 +1,15 @@
-import React, { useState } from "react"
-import { navigate } from "gatsby"
-import Layout from "../components/layout"
-import { HummContext } from "gatsby-plugin-hummhive-react-web-data"
-import { FiLock, FiUnlock } from "react-icons/fi"
-import SEO from "../components/seo"
+import React, { useState } from "react";
+import { navigate } from "gatsby";
+import Layout from "../components/layout";
+import { HummContext } from "gatsby-plugin-hummhive-react-web-data";
+import { FiLock, FiUnlock } from "react-icons/fi";
+import SEO from "../components/seo";
 
 const Account = () => {
-  const { state, actions } = React.useContext(HummContext)
-  const { memberKeysBase64 } = state
-  const [showKey, setShowKey] = useState(false)
-  const [error, setError] = useState(false)
+  const { state, actions } = React.useContext(HummContext);
+  const { memberKeysBase64 } = state;
+  const [showKey, setShowKey] = useState(false);
+  const [error, setError] = useState(false);
 
   // async function checkBillingPortal(hive, sendTo) {
   //   const result = await paymentBillingPortal(
@@ -21,12 +21,12 @@ const Account = () => {
 
   const handleLogout = async () => {
     try {
-      await actions.logout()
-      navigate(`/`)
+      await actions.logout();
+      navigate(`/`);
     } catch (err) {
-      setError(err.message || JSON.stringify(err))
+      setError(err.message || JSON.stringify(err));
     }
-  }
+  };
 
   return (
     <Layout>
@@ -117,7 +117,7 @@ const Account = () => {
         </div>
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default Account
+export default Account;

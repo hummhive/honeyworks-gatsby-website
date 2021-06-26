@@ -1,12 +1,12 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import { HummContext } from "gatsby-plugin-hummhive-react-web-data"
-import { FiHexagon } from "react-icons/fi"
-import React from "react"
+import { Link } from "gatsby";
+import PropTypes from "prop-types";
+import { HummContext } from "gatsby-plugin-hummhive-react-web-data";
+import { FiHexagon } from "react-icons/fi";
+import React from "react";
 
 const Header = () => {
-  const { state } = React.useContext(HummContext)
-  const { hive, isLoggedIn } = state
+  const { state } = React.useContext(HummContext);
+  const { hive, isLoggedIn } = state;
 
   // const hasStripePlans = groups?.some(g =>
   //   g.paymentPluginData.some(p => p.pluginId === "honeyworksCloudStripe")
@@ -69,12 +69,12 @@ const Header = () => {
         </nav>
       </div>
     </div>
-  )
-}
+  );
+};
 
 Header.propTypes = {
   hive: PropTypes.object,
   location: PropTypes.object,
-}
+};
 
-export default Header
+export default Header;

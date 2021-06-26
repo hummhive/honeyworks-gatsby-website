@@ -1,19 +1,19 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
-import Moment from "react-moment"
-import { FiClock } from "react-icons/fi"
-import Layout from "../components/layout"
-import Loader from "../components/Loader"
-import { HummContext } from "gatsby-plugin-hummhive-react-web-data"
+import React from "react";
+import PropTypes from "prop-types";
+import { Link } from "gatsby";
+import Moment from "react-moment";
+import { FiClock } from "react-icons/fi";
+import Layout from "../components/layout";
+import Loader from "../components/Loader";
+import { HummContext } from "gatsby-plugin-hummhive-react-web-data";
 
 const Home = () => {
-  const { state, actions } = React.useContext(HummContext)
-  const { storyIndex } = state
+  const { state, actions } = React.useContext(HummContext);
+  const { storyIndex } = state;
 
   React.useEffect(() => {
-    if (!storyIndex) actions.getStoryIndex()
-  }, [])
+    if (!storyIndex) actions.getStoryIndex();
+  }, []);
 
   return (
     <Layout>
@@ -42,11 +42,11 @@ const Home = () => {
         ))}
       </div>
     </Layout>
-  )
-}
+  );
+};
 
 Home.propTypes = {
   pageContext: PropTypes.object,
-}
+};
 
-export default Home
+export default Home;

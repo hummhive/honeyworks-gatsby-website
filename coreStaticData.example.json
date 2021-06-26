@@ -1,8 +1,4 @@
 {
   "hivePublicKey": "ZaHqC4lRVavXXptxrpacUhps8za0iCAaWcfb1PI9fiA=",
-  "dataBridge": {
-    "addInboxDataEndpoint": "https://honeyworks-data-bridge.hummhive.workers.dev/addInboxData",
-    "listDataKeysEndpoint": "https://honeyworks-data-bridge.hummhive.workers.dev/listDataKeys",
-    "getDataEndpoint": "https://honeyworks-data-bridge.hummhive.workers.dev/getData"
-  }
+  "dataBridgeUrl": "zahqc4lrvavxxptxrpacuhps8za0icaawcfb1pi9fia-data-bridge.hummhive.workers.dev"
 }

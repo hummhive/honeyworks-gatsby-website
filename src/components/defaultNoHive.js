@@ -1,7 +1,7 @@
-import React from "react"
-import { FiHexagon } from "react-icons/fi"
-import "../../static/bootstrap.min.css"
-import "../../static/layout.css"
+import React from "react";
+import { FiHexagon } from "react-icons/fi";
+import "../../static/bootstrap.min.css";
+import "../../static/layout.css";
 
 const DefaultNoHive = () => {
   return (
@@ -17,7 +17,7 @@ const DefaultNoHive = () => {
         <p className="p-5">Come back to this page in a minute or less!</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DefaultNoHive
+export default DefaultNoHive;

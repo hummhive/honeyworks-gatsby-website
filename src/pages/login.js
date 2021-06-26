@@ -1,26 +1,26 @@
-import React, { useState } from "react"
-import PropTypes from "prop-types"
-import { navigate, Link } from "gatsby"
-import { HummContext } from "gatsby-plugin-hummhive-react-web-data"
-import { FiHexagon } from "react-icons/fi"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import { navigate, Link } from "gatsby";
+import { HummContext } from "gatsby-plugin-hummhive-react-web-data";
+import { FiHexagon } from "react-icons/fi";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 function Login() {
-  const { state, actions } = React.useContext(HummContext)
-  const { hive } = state
-  const [base64KeySet, setBase64KeySet] = useState("")
-  const [error, setError] = useState(false)
+  const { state, actions } = React.useContext(HummContext);
+  const { hive } = state;
+  const [base64KeySet, setBase64KeySet] = useState("");
+  const [error, setError] = useState(false);
 
   const handleSubmit = async e => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      await actions.login(base64KeySet)
-      navigate("/")
+      await actions.login(base64KeySet);
+      navigate("/");
     } catch (err) {
-      setError(err.message || JSON.stringify(err))
+      setError(err.message || JSON.stringify(err));
     }
-  }
+  };
 
   // if (
   //   isLoggedIn() ||
@@ -81,9 +81,9 @@ function Login() {
         </div>
       </div>
     </Layout>
-  )
+  );
 }
 Login.propTypes = {
   location: PropTypes.object,
-}
-export default Login
+};
+export default Login;

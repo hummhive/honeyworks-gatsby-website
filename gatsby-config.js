@@ -1,9 +1,9 @@
 module.exports = {
   flags: {
-    DEV_SSR: false
+    DEV_SSR: false,
   },
   plugins: [
-    "gatsby-plugin-hummhive-react-web-data",
+    'gatsby-plugin-hummhive-react-web-data',
     `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -40,4 +40,4 @@ module.exports = {
       },
     },
   ],
-}
+};

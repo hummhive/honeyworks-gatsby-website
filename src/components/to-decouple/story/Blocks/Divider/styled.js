@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const Divider = styled.div`
   width: 100%;
@@ -8,4 +8,4 @@ export const Divider = styled.div`
   outline: solid 0px #a77fde;
   outline-width: 0px;
   opacity: 1;
-`
+`;

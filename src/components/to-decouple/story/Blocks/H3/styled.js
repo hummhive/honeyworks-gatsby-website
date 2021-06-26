@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const H3 = styled.h3`
   font-family: "Muli", sans-serif;
@@ -7,4 +7,4 @@ export const H3 = styled.h3`
   font-size: 26px;
   padding: 0;
   margin: 0;
-`
+`;

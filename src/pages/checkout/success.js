@@ -1,7 +1,7 @@
-import React from "react"
-import Layout from "../../components/layout"
+import React from "react";
+import Layout from "../../components/layout";
 // import { paymentBillingPortal } from "../../services/auth"
-import SEO from "../../components/seo"
+import SEO from "../../components/seo";
 
 function SubscribeSuccess() {
   // const [error, setError] = useState(false)
@@ -35,7 +35,7 @@ function SubscribeSuccess() {
         </div>
       </div>
     </Layout>
-  )
+  );
 }
 
-export default SubscribeSuccess
+export default SubscribeSuccess;

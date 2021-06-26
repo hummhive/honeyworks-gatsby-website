@@ -1,5 +1,5 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from "react";
+import PropTypes from "prop-types";
 import {
   EmbedContianer,
   EmbedTextContainer,
@@ -9,18 +9,18 @@ import {
   EmbedFavicon,
   EmbedUrl,
   EmbedImage,
-} from "./styled"
+} from "./styled";
 
 const Embed = ({ data, isFocused }) => {
-  const { url, meta } = data
-  const title = meta["og:title"] || meta.title
-  const description = meta["og:description"] || meta.description
-  const image = meta["og:image"] || meta["twitter:image"] || meta.image
-  const { favicon } = meta
+  const { url, meta } = data;
+  const title = meta["og:title"] || meta.title;
+  const description = meta["og:description"] || meta.description;
+  const image = meta["og:image"] || meta["twitter:image"] || meta.image;
+  const { favicon } = meta;
 
   const open = () => {
-    window.open(url, "_blank")
-  }
+    window.open(url, "_blank");
+  };
 
   return (
     <EmbedContianer
@@ -40,12 +40,12 @@ const Embed = ({ data, isFocused }) => {
       </EmbedTextContainer>
       <EmbedImage src={image} />
     </EmbedContianer>
-  )
-}
+  );
+};
 
 Embed.propTypes = {
   data: PropTypes.object,
   isFocused: PropTypes.bool,
-}
+};
 
-export default Embed
+export default Embed;

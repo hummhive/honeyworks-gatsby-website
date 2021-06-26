@@ -1,19 +1,20 @@
-import React, { useState } from "react"
-import Layout from "../../components/layout"
-import SEO from "../../components/seo"
+import React, { useState } from 'react';
+import Layout from '../../components/layout';
+import SEO from '../../components/seo';
 // import { getMemberKeys } from "../../services/auth"
 // import decodeMemberKeys from "../../services/decodeMemberKeys"
 // import tweetnaclUtil from "tweetnacl-util"
-import PropTypes from "prop-types"
-import { loadStripe } from "@stripe/stripe-js"
+import PropTypes from 'prop-types';
+// import { loadStripe } from "@stripe/stripe-js";
 
-function Subscribe({
-  paymentCapabilityId = "honeyworksCloudStripe",
-  activePlan = 0,
-  checkoutUrl = "https://stripe-dev.hummhive.workers.dev/market/checkout/session/create",
-}) {
-  const [selectedPlanId, setSelectedPlanId] = useState(null)
-  const [loading, setLoading] = useState(false)
+// {
+//   // paymentCapabilityId = "honeyworksCloudStripe",
+//   // activePlan = 0,
+//   // checkoutUrl = "https://stripe-dev.hummhive.workers.dev/market/checkout/session/create",
+// }
+function Subscribe() {
+  // const [selectedPlanId, setSelectedPlanId] = useState(null);
+  const [loading, setLoading] = useState(false);
   // const { hive } = React.useContext(HiveContext)
   // const { groups } = React.useContext(GroupsContext)
 
@@ -28,7 +29,7 @@ function Subscribe({
   // const decodedMemberKeys = decodeMemberKeys(getMemberKeys())
 
   const handleSubmit = async () => {
-    setLoading(true)
+    setLoading(true);
     // fetch(checkoutUrl, {
     //   method: "POST",
     //   headers: {
@@ -57,7 +58,7 @@ function Subscribe({
     //       console.log(e.message)
     //     }
     //   })
-  }
+  };
 
   // if (!hive) return null
 
@@ -94,11 +95,11 @@ function Subscribe({
           className="btn btn-highlight"
           onClick={handleSubmit}
         >
-          {!loading ? "Checkout" : "Loading..."}
+          {!loading ? 'Checkout' : 'Loading...'}
         </button>
       </div>
     </Layout>
-  )
+  );
 }
 Subscribe.propTypes = {
   location: PropTypes.object,
@@ -108,5 +109,5 @@ Subscribe.propTypes = {
   paymentCapabilityId: PropTypes.string,
   activePlan: PropTypes.number,
   checkoutUrl: PropTypes.string,
-}
-export default Subscribe
+};
+export default Subscribe;

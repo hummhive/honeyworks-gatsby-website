@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const Container = styled.div`
   position: relative;
@@ -11,7 +11,7 @@ export const Container = styled.div`
   *::selection {
     background: ${props => (props.isBlockSelected ? "transparent" : "#D9EAFF")};
   }
-`
+`;
 
 export const BlockContainer = styled.div`
   flex: 1;
@@ -19,4 +19,4 @@ export const BlockContainer = styled.div`
   border-radius: 2px;
   padding: 0;
   cursor: text;
-`
+`;

@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const TweetContianer = styled.div`
   margin: 16px 0;
@@ -7,4 +7,4 @@ export const TweetContianer = styled.div`
   align-items: center;
   outline: solid 0px ${props => props.theme.secondaryVivid};
   outline-width: ${props => (props.isFocused ? "4px" : "0px")};
-`
+`;

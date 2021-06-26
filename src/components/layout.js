@@ -5,11 +5,11 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
-import Header from "./header"
-import "../../static/bootstrap.min.css"
-import "../../static/layout.css"
+import React from "react";
+import PropTypes from "prop-types";
+import Header from "./header";
+import "../../static/bootstrap.min.css";
+import "../../static/layout.css";
 
 const Layout = ({ children, header }) => {
   return (
@@ -17,12 +17,12 @@ const Layout = ({ children, header }) => {
       {header !== "no" && <Header />}
       <main>{children}</main>
     </>
-  )
-}
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   header: PropTypes.node,
-}
+};
 
-export default Layout
+export default Layout;

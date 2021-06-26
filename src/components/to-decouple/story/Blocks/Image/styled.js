@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
@@ -18,7 +18,7 @@ export const Container = styled.div`
     text-transform: uppercase;
     letter-spacing: 0.3em;
   }
-`
+`;
 
 export const Image = styled.img`
   width: 100%;
@@ -26,4 +26,4 @@ export const Image = styled.img`
   min-height: 100px;
   background: ${props => props.theme.rowDivider};
   cursor: default;
-`
+`;

@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const P = styled.p`
   font-style: normal;
@@ -8,11 +8,11 @@ export const P = styled.p`
   letter-spacing: 0.15px;
   padding: 0;
   margin: ${props => (props.dense ? "0" : "16px")} 0;
-`
+`;
 
 export const Placeholder = styled(P)`
   position: absolute;
   top: 0;
   pointer-events: none;
   color: ${props => props.theme.app300};
-`
+`;

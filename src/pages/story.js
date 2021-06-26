@@ -1,21 +1,21 @@
-import React from "react"
-import Layout from "../components/layout"
-import PropTypes from "prop-types"
-import { HummContext } from "gatsby-plugin-hummhive-react-web-data"
-import Moment from "react-moment"
-import SEO from "../components/seo"
-import Loader from "../components/Loader"
-import { FiClock } from "react-icons/fi"
-import DocumentBuilder from "../components/to-decouple/story/documentBuilder"
+import React from "react";
+import Layout from "../components/layout";
+import PropTypes from "prop-types";
+import { HummContext } from "gatsby-plugin-hummhive-react-web-data";
+import Moment from "react-moment";
+import SEO from "../components/seo";
+import Loader from "../components/Loader";
+import { FiClock } from "react-icons/fi";
+import DocumentBuilder from "../components/to-decouple/story/documentBuilder";
 
 const Story = ({ id }) => {
-  const { state, actions } = React.useContext(HummContext)
-  const isLoading = state.loadingStories.some(loadingId => loadingId === id)
-  const story = state.stories[id]
+  const { state, actions } = React.useContext(HummContext);
+  const isLoading = state.loadingStories.some(loadingId => loadingId === id);
+  const story = state.stories[id];
 
   React.useEffect(() => {
-    if (!story && !isLoading) actions.getStory(id)
-  }, [])
+    if (!story && !isLoading) actions.getStory(id);
+  }, []);
 
   return (
     <Layout>
@@ -45,11 +45,11 @@ const Story = ({ id }) => {
         )}
       </div>
     </Layout>
-  )
-}
+  );
+};
 
 Story.propTypes = {
   id: PropTypes.string,
-}
+};
 
-export default Story
+export default Story;

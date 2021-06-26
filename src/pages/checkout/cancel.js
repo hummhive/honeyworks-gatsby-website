@@ -1,6 +1,6 @@
-import React from "react"
-import Layout from "../../components/layout"
-import SEO from "../../components/seo"
+import React from "react";
+import Layout from "../../components/layout";
+import SEO from "../../components/seo";
 
 function SubscribeCancel() {
   return (
@@ -15,7 +15,7 @@ function SubscribeCancel() {
         </div>
       </div>
     </Layout>
-  )
+  );
 }
 
-export default SubscribeCancel
+export default SubscribeCancel;

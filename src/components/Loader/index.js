@@ -1,6 +1,6 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { Container, Spinner } from "./styled"
+import React from "react";
+import PropTypes from "prop-types";
+import { Container, Spinner } from "./styled";
 
 export default function LoaderComponent({
   isLoading,
@@ -10,7 +10,7 @@ export default function LoaderComponent({
   color,
   size,
 }) {
-  const display = !isLoading ? "none" : inline ? "inline" : "flex"
+  const display = !isLoading ? "none" : inline ? "inline" : "flex";
 
   return (
     <Container
@@ -33,7 +33,7 @@ export default function LoaderComponent({
         </svg>
       </Spinner>
     </Container>
-  )
+  );
 }
 
 LoaderComponent.propTypes = {
@@ -43,4 +43,4 @@ LoaderComponent.propTypes = {
   background: PropTypes.string,
   color: PropTypes.string,
   size: PropTypes.number,
-}
+};
