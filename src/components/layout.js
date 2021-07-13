@@ -17,9 +17,9 @@ const Layout = ({ children }) => {
   const { state } = React.useContext(HummContext);
   const { isLoggedIn } = state;
   const location = useLocation();
-  const dismissedGroups = window.localStorage.getItem(
-    'dismissed-groups-header'
-  );
+  const dismissedGroups =
+    typeof window === 'object' &&
+    window.localStorage.getItem('dismissed-groups-header');
 
   return (
     <>
