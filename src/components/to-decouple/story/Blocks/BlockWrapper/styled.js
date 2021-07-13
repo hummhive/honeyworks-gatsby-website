@@ -1,15 +1,21 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   position: relative;
   display: flex;
   box-sizing: border-box;
   margin: 0 auto;
-  padding: 0
+  padding: 0;
   box-sizing: content-box;
-  background: ${props => (props.isBlockSelected ? "#D9EAFF" : "transparent")};
+  background: ${(props) => (props.isBlockSelected ? '#D9EAFF' : 'transparent')};
   *::selection {
-    background: ${props => (props.isBlockSelected ? "transparent" : "#D9EAFF")};
+    background: ${(props) =>
+      props.isBlockSelected ? 'transparent' : '#D9EAFF'};
+  }
+
+  * {
+    font-family: 'Noto Serif JP';
+    font-weight: 500;
   }
 `;
 

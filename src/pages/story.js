@@ -31,7 +31,7 @@ const Story = ({ id }) => {
             <div className="post-title">
               <h1>{story.title}</h1>
             </div>
-            <div className="meta d-flex pt-1 mb-5">
+            <div className="meta d-flex pt-1 mb-3">
               <div className="date">
                 <Moment format="MMM D">{story.createdAt}</Moment>
               </div>

@@ -7,6 +7,7 @@
 import '@fontsource/nunito';
 import '@fontsource/nunito/700.css';
 import '@fontsource/nunito-sans';
-import '@fontsource/nunito-sans/700.css';
-import '@fontsource/nunito-sans/900.css';
-import '@fontsource/libre-baskerville';
+import '@fontsource/nunito-sans/800.css';
+import '@fontsource/libre-baskerville/700.css';
+import '@fontsource/noto-serif-jp';
+import '@fontsource/noto-serif-jp/500.css';

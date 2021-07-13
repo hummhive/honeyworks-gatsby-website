@@ -10,11 +10,26 @@ export const TitleContainer = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
+  flex: 0 1 auto;
+  /* max-width: 50%; */
 
   h2 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-family: 'Nunito';
     font-weight: 700;
     margin: 0 0 0 12px;
+
+    @media only screen and (min-width: 480px) and (max-width: 720px) {
+      font-size: 24px;
+      margin: 0 0 0 8px;
+    }
+
+    @media only screen and (max-width: 480px) {
+      font-size: 18px;
+      margin: 0 0 0 8px;
+    }
   }
 
   *:first-child {
@@ -24,6 +39,8 @@ export const TitleContainer = styled.div`
 
 export const ButtonsContainer = styled.div`
   display: flex;
+  justify-content: flex-end;
+  flex: 1;
 `;
 
 export const Button = styled.button`
@@ -44,5 +61,15 @@ export const Button = styled.button`
   :hover {
     background: white;
     color: black;
+  }
+
+  @media only screen and (min-width: 480px) and (max-width: 720px) {
+    font-size: 12px;
+    padding: 4px 16px;
+  }
+
+  @media only screen and (max-width: 480px) {
+    font-size: 10px;
+    padding: 4px 8px;
   }
 `;

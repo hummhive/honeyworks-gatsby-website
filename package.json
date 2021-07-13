@@ -51,6 +51,7 @@
   },
   "dependencies": {
     "@fontsource/libre-baskerville": "^4.5.0",
+    "@fontsource/noto-serif-jp": "^4.5.0",
     "@fontsource/nunito": "^4.2.1",
     "@fontsource/nunito-sans": "^4.5.0",
     "babel-plugin-styled-components": "^1.13.2",

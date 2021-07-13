@@ -20,6 +20,12 @@ const Signin = React.forwardRef(({ activeStage, signin, setStage }, ref) => {
     }
   };
 
+  const handleClose = () => {
+    setb64Key('');
+    setError(null);
+    setStage(0);
+  };
+
   return (
     <SigninContainer ref={ref}>
       <Inner>
@@ -36,7 +42,7 @@ const Signin = React.forwardRef(({ activeStage, signin, setStage }, ref) => {
             activeStage={activeStage}
             showingStage={3}
             delay={1000}
-            onClick={() => setStage(0)}
+            onClick={handleClose}
           />
         </form>
       </Inner>

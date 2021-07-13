@@ -1,15 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Container, BlockContainer } from "./styled";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Container, BlockContainer } from './styled';
 
 function BlockWrapper({ attributes, element, children }) {
-  const blockLayout = element.layout || "inset";
+  const blockLayout = element.layout || 'inset';
 
   return (
     <Container {...attributes} blockLayout={blockLayout}>
-      <BlockContainer className="container" id="block-container">
-        {children}
-      </BlockContainer>
+      <BlockContainer id="block-container">{children}</BlockContainer>
     </Container>
   );
 }

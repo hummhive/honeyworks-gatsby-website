@@ -17,10 +17,17 @@ const Layout = ({ children }) => {
   const { state } = React.useContext(HummContext);
   const { isLoggedIn } = state;
   const location = useLocation();
+  const dismissedGroups = window.localStorage.getItem(
+    'dismissed-groups-header'
+  );
 
   return (
     <>
-      <Header initialStage={!isLoggedIn && location.pathname === '/' ? 1 : 0} />
+      <Header
+        initialStage={
+          !isLoggedIn && location.pathname === '/' && !dismissedGroups ? 1 : 0
+        }
+      />
       <main>{children}</main>
     </>
   );

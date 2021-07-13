@@ -17,6 +17,11 @@ import {
 // eslint-disable-next-line react/display-name
 const Groups = React.forwardRef(
   ({ hive, groups, activeStage, setStage }, ref) => {
+    const handleClose = () => {
+      window.localStorage.setItem('dismissed-groups-header', 'true');
+      setStage(0);
+    };
+
     return (
       <div ref={ref}>
         <Container>
@@ -29,13 +34,14 @@ const Groups = React.forwardRef(
             </p>
           </DescriptionContainer>
           <GroupsContainer>
-            <Group baseGroup>
+            <Group>
               <UpperGroupContainer>
                 <GroupTitle>Join Hive</GroupTitle>
                 <GroupDescription>
                   By joining {hive?.name}, you get access to all of {hive?.name}
                   &apos;s public content and can get sent encrypted media
-                  directly.
+                  directly. The Hive Creator may also give you access to private
+                  Group content.
                 </GroupDescription>
               </UpperGroupContainer>
               <LowerGroupContainer>
@@ -52,8 +58,8 @@ const Groups = React.forwardRef(
                 </UpperGroupContainer>
                 <LowerGroupContainer>
                   <GroupCost>
-                    {group.amount * 100} {group.currency.toUpperCase()}/
-                    {group.interval}
+                    {group.amount * 100} {group.currency.toUpperCase()} /{' '}
+                    {group.interval.toUpperCase()}
                   </GroupCost>
                   <JoinGroupButton onClick={() => setStage(2)}>
                     Subscribe
@@ -65,7 +71,7 @@ const Groups = React.forwardRef(
           <CloseButton
             activeStage={activeStage}
             showingStage={1}
-            onClick={() => setStage(0)}
+            onClick={handleClose}
           />
         </Container>
       </div>

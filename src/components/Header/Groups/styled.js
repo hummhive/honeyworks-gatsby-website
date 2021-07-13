@@ -18,10 +18,26 @@ export const DescriptionContainer = styled.div`
   h2 {
     font-size: 38px;
     font-weight: 700;
+
+    @media only screen and (min-width: 480px) and (max-width: 720px) {
+      font-size: 30px;
+    }
+
+    @media only screen and (max-width: 480px) {
+      font-size: 26px;
+    }
   }
 
   p {
     font-size: 18px;
+
+    @media only screen and (min-width: 480px) and (max-width: 720px) {
+      font-size: 16px;
+    }
+
+    @media only screen and (max-width: 480px) {
+      font-size: 14px;
+    }
   }
 `;
 
@@ -39,7 +55,7 @@ export const Group = styled.div`
   padding: 24px 0;
   width: 250px;
   height: 300px;
-  margin: ${(props) => (props.baseGroup ? '0 48px 0 0' : '0 8px')};
+  margin: 0 8px;
   box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.2), 6px 6px 30px rgba(0, 0, 0, 0.2);
   border-radius: 12px;
   background: white;
@@ -51,6 +67,16 @@ export const Group = styled.div`
 
   :last-child {
     margin-right: 0;
+  }
+
+  @media only screen and (min-width: 480px) and (max-width: 720px) {
+    width: 225px;
+    height: 275px;
+  }
+
+  @media only screen and (max-width: 480px) {
+    width: 200px;
+    height: 250px;
   }
 `;
 
@@ -71,16 +97,33 @@ export const LowerGroupContainer = styled.div`
 `;
 
 export const GroupTitle = styled.h3`
-  font-size: 18px;
+  font-size: 24px;
   text-align: center;
+
+  @media only screen and (min-width: 480px) and (max-width: 720px) {
+    font-size: 20px;
+  }
+
+  @media only screen and (max-width: 480px) {
+    font-size: 16px;
+  }
 `;
 
 export const GroupDescription = styled.p`
-  font-size: 13px;
+  font-size: 15px;
+
+  @media only screen and (min-width: 480px) and (max-width: 720px) {
+    font-size: 13px;
+  }
+
+  @media only screen and (max-width: 480px) {
+    font-size: 11px;
+  }
 `;
 
 export const GroupCost = styled.p`
   font-size: 13px;
+  font-weight: 600;
   text-align: center;
   margin: 0 0 8px 0;
 `;

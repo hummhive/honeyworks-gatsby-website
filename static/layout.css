@@ -148,7 +148,7 @@ a {
 }
 
 .index-title h1 {
-  font-weight: 700;
+  font-weight: 800;
   font-size: 26px;
   margin-bottom: 0;
   color: #292929;
@@ -166,10 +166,48 @@ a {
 
 .post-title h1 {
   font-family: 'Libre Baskerville';
-  font-weight: 900;
+  font-weight: 700;
   font-size: 40px;
   margin-bottom: 0;
   line-height: 1.5em;
+}
+
+@media only screen and (min-width: 480px) and (max-width: 720px) {
+  .readable-content {
+    margin: 40px auto;
+  }
+
+  .index-title h1 {
+    font-weight: 700;
+    font-size: 22px;
+  }
+
+  .post a p {
+    font-size: 16px;
+  }
+
+  .post-title h1 {
+    font-size: 34px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .readable-content {
+    margin: 32px auto;
+  }
+
+  .index-title h1 {
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  .post a p {
+    font-size: 14px;
+  }
+
+  .post-title h1 {
+    font-size: 28px;
+  }
 }
 
 .subscribe {

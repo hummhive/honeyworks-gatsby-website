@@ -11,7 +11,6 @@ const CloseButton = ({ activeStage, showingStage, delay = 0, onClick }) => {
       mass: 1,
       tension: 210,
       friction: 10,
-      velocity: 1,
       clamp: true,
     },
   });

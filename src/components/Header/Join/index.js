@@ -46,6 +46,13 @@ const Join = React.forwardRef(
       }
     };
 
+    const handleClose = () => {
+      setUsername('');
+      setEmail('');
+      setError(null);
+      setStage(1);
+    };
+
     return (
       <JoinContainer ref={ref}>
         <Inner>
@@ -72,7 +79,7 @@ const Join = React.forwardRef(
             activeStage={activeStage}
             showingStage={2}
             delay={1000}
-            onClick={() => setStage(1)}
+            onClick={handleClose}
           />
         </Inner>
       </JoinContainer>

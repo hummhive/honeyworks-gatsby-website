@@ -2,11 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { FiCopy } from 'react-icons/fi';
-import { JoinSuccessContainer, Inner, Row, KeyContainer } from './styled';
+import {
+  JoinSuccessContainer,
+  Inner,
+  Row,
+  KeyContainer,
+  CopiedText,
+} from './styled';
 import { SubmitButton } from '../styled';
 
 // eslint-disable-next-line react/display-name
 const JoinSuccess = React.forwardRef(({ memberKeysBase64, setStage }, ref) => {
+  const [didCopy, setDidCopy] = React.useState(false);
+
+  React.useEffect(() => {
+    if (didCopy) setTimeout(() => setDidCopy(false), 3000);
+  }, [didCopy]);
+
   return (
     <JoinSuccessContainer ref={ref}>
       <Inner>
@@ -25,18 +37,20 @@ const JoinSuccess = React.forwardRef(({ memberKeysBase64, setStage }, ref) => {
         </p>
         <Row>
           <KeyContainer>{memberKeysBase64}</KeyContainer>
-          <CopyToClipboard text={memberKeysBase64}>
-            <span
+          <CopyToClipboard
+            text={memberKeysBase64}
+            onCopy={() => setDidCopy(true)}
+          >
+            <div
               style={{
-                fontSize: '10px',
-                textAlign: 'center',
                 margin: 'auto',
                 cursor: 'pointer',
               }}
             >
               <FiCopy size={40} />
-            </span>
+            </div>
           </CopyToClipboard>
+          <CopiedText isShowing={didCopy}>Copied</CopiedText>
         </Row>
         <SubmitButton onClick={() => setStage(0)}>Continue</SubmitButton>
       </Inner>
