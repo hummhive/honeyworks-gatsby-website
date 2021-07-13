@@ -1,218 +1,254 @@
 body {
   background: #fff;
-  font-family: "Nunito";
+  font-family: 'Nunito Sans';
+  color: #292929;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	font-weight: 900;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 900;
 }
 
 .meta div {
-	padding-right: 10px;
-  font-size: 14px;
-	color: #888888;
+  padding-right: 10px;
+  font-size: 16px;
+  color: #757575;
+}
+.post .meta div {
+  font-size: 13px;
 }
 
-.header{
+.header {
   background: #fff;
-  margin-bottom: 80px;
 }
 
-.custombg{
+.custombg {
   background: url('../src/images/login-bg.jpg') no-repeat center center/cover;
   width: 40%;
 }
 
-.copyKey{
+.copyKey {
   font-size: 30px;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 20px;
 }
 
-.showKey{
+.showKey {
   font-size: 30px;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 20px;
 }
 
-a{
+a {
   color: #646eff;
 }
 
 .header a {
-	line-height: 1.5;
-	position: relative;
-	padding: 0;
+  line-height: 1.5;
+  position: relative;
+  padding: 0;
   font-size: 19px;
   display: inline-block;
   pointer-events: auto;
 }
 
-.header li{
-  	margin: 0 30px 0 0;
+.header li {
+  margin: 0 30px 0 0;
 }
 
-.header li:last-child{
+.header li:last-child {
   margin: 0;
 }
 
-.header .logo{
+.header .logo {
   font-size: 38px;
 }
 
-.hiveName{
+.hiveName {
   color: #2b394e;
   font-size: 60px;
 }
 
-.header .btn-highlight, .header .btn-highlight:hover {
-padding: 12px 22px;
-font-size: 19px;
-color: #fff;
-transition: opacity .55s ease;
+.header .btn-highlight,
+.header .btn-highlight:hover {
+  padding: 12px 22px;
+  font-size: 19px;
+  color: #fff;
+  transition: opacity 0.55s ease;
 }
 
-.header .btn-highlight:hover{
-  opacity: .75;
+.header .btn-highlight:hover {
+  opacity: 0.75;
 }
 
-.header a:hover{
+.header a:hover {
   color: #999;
   text-decoration: none;
 }
 
 .subscription-title {
-	font-weight: 700;
+  font-weight: 700;
 }
 
 .subscription-plan {
-	border: 1px solid rgba(0, 0, 0, 0.15);
-	border-radius: 8px;
-	padding: 10px;
-	margin-top: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
 .subscription-plan label {
-	display: flex;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-	padding-bottom: 10px;
+  display: flex;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  padding-bottom: 10px;
 }
 
-.subscription-plan input{
+.subscription-plan input {
   margin-right: 10px;
 }
 
-.subscription-plan label:last-child{
+.subscription-plan label:last-child {
   border-bottom: 0;
-  	padding-bottom: 0px;
-    margin-bottom: 0;
+  padding-bottom: 0px;
+  margin-bottom: 0;
 }
 
 .title {
-	flex-grow: 1;
-	/* font-size: ; */
-	font-weight: 700;
-	font-size: 21px;
+  flex-grow: 1;
+  /* font-size: ; */
+  font-weight: 400;
+  font-size: 21px;
 }
 
 .title svg {
-	margin-right: 7px;
-	/* padding: ; */
-	width: 40px;
-	height: 40px;
+  margin-right: 7px;
+  /* padding: ; */
+  width: 40px;
+  height: 40px;
 }
 
-.breadcrumb__link.breadcrumb__link__active{
+.breadcrumb__link.breadcrumb__link__active {
   color: #78757a;
 }
 
-.post-title h1{
-font-weight: 900;
-font-size: 38px;
-margin-bottom: 0;
+.readable-content {
+  width: 100%;
+  max-width: 728px;
+  margin: 62px auto;
+  padding: 0 24px;
+}
+
+.index-title h1 {
+  font-weight: 700;
+  font-size: 26px;
+  margin-bottom: 0;
+  color: #292929;
+}
+
+.post {
+  margin-bottom: 56px;
+}
+
+.post p {
+  font-size: 18px;
+  margin-bottom: 0;
+  color: #757575 !important;
+}
+
+.post-title h1 {
+  font-family: 'Libre Baskerville';
+  font-weight: 900;
+  font-size: 40px;
+  margin-bottom: 0;
+  line-height: 1.5em;
 }
 
 .subscribe {
-	border: 1px solid #fff;
-	color: #fff;
-	border-radius: 13px;
-	padding: 6px;
-	text-transform: uppercase;
-	font-size: 12px;
-	background: #646eff;
-	padding-left: 20px;
-	padding-right: 20px;
+  border: 1px solid #fff;
+  color: #fff;
+  border-radius: 13px;
+  padding: 6px;
+  text-transform: uppercase;
+  font-size: 12px;
+  background: #646eff;
+  padding-left: 20px;
+  padding-right: 20px;
   height: 30px;
 }
 
 .login {
-	border: 1px solid #fff;
-	color: #fff;
-	border-radius: 13px;
-	padding: 6px;
-	text-transform: uppercase;
-	font-size: 12px;
-	background: #646eff;
-	padding-left: 20px;
-	padding-right: 20px;
+  border: 1px solid #fff;
+  color: #fff;
+  border-radius: 13px;
+  padding: 6px;
+  text-transform: uppercase;
+  font-size: 12px;
+  background: #646eff;
+  padding-left: 20px;
+  padding-right: 20px;
   height: 30px;
 }
 
 .btn-bd-download {
-	font-weight: 600;
-	color: #ffe484;
-	border-color: #ffe484;
+  font-weight: 600;
+  color: #ffe484;
+  border-color: #ffe484;
 }
 
-.header a{
-	font-size: 19px;
+.header a {
+  font-size: 19px;
   color: #2b394e;
   font-weight: 900;
 }
 
-.login-page h1, .login-page h2 {
-	font-size: 32px;
-	line-height: 1.2;
-	padding: 0;
+.login-page h1,
+.login-page h2 {
+  font-size: 32px;
+  line-height: 1.2;
+  padding: 0;
 }
 
-.login-subtitle{
+.login-subtitle {
   font-size: 14px;
   margin-top: 30px;
 }
 
-.login-form-shadow{
-	font-size: 20px;
-	padding-top: 22px;
-	padding-bottom: 22px;
+.login-form-shadow {
+  font-size: 20px;
+  padding-top: 22px;
+  padding-bottom: 22px;
   outline: 0;
   border: 0;
   box-shadow: none;
   width: 100%;
   padding-right: 22px;
-padding-left: 22px;
-	transition: background-color .15s ease;
-	text-align: center;
-	word-break: break-all;
-	border-radius: 100px;
-	background-color: #f4f4f7;
+  padding-left: 22px;
+  transition: background-color 0.15s ease;
+  text-align: center;
+  word-break: break-all;
+  border-radius: 100px;
+  background-color: #f4f4f7;
 }
 
-.highlight{
+.highlight {
   color: #646eff;
 }
 
-.bg-highlight{
+.bg-highlight {
   background: #646eff;
 }
 
 .btn-highlight {
-	background: #646eff;
+  background: #646eff;
   font-size: 20px;
   line-height: 1.5;
   padding: 10px 26px;
@@ -220,82 +256,83 @@ padding-left: 22px;
   font-weight: 900;
   color: #fff;
   text-align: center;
-  transition: opacity .55s ease;
+  transition: opacity 0.55s ease;
   opacity: 1;
 }
 
 .btn-highlight:hover {
   color: #fff !important;
-  opacity: .75;
+  opacity: 0.75;
 }
 
-.post-title a{
-  color: #2b394e;
+.index-title a {
+  color: #292929;
 }
 
 .loading-indicator {
-	text-align: center;
-	margin-bottom: 20px;
-	border-radius: 10px;
-	background: #646eff;
-	color: #fff;
-	padding: 7px;
-	font-size: 12px;
+  text-align: center;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background: #646eff;
+  color: #fff;
+  padding: 7px;
+  font-size: 12px;
 }
 
 .card {
-	margin-bottom: 1.875rem;
-	background-color: #fff;
-	transition: all .5s ease-in-out;
-	position: relative;
-	border: 0px solid transparent;
-	border-radius: 1.25rem;
-	box-shadow: 0px 12px 23px 0px rgba(172, 57, 212, 0.04);
-	height: calc(100% - 30px);
+  margin-bottom: 1.875rem;
+  background-color: #fff;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+  border: 0px solid transparent;
+  border-radius: 1.25rem;
+  box-shadow: 0px 12px 23px 0px rgba(172, 57, 212, 0.04);
+  height: calc(100% - 30px);
 }
 
 .card-header {
-	border-color: #f0f1f5;
-	position: relative;
-	background: transparent;
-	padding: 1.5rem 1.875rem 1.25rem;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+  border-color: #f0f1f5;
+  position: relative;
+  background: transparent;
+  padding: 1.5rem 1.875rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.post-title a:hover{
-  color: #000;
+.post a:hover {
+  text-decoration: none;
 }
 
 footer .title {
-	border-bottom:  1px solid #d9d9d9;
-	max-width: 300px;
-	margin: auto;
+  border-bottom: 1px solid #d9d9d9;
+  max-width: 300px;
+  margin: auto;
 }
 
-.read-more svg, .meta svg {
-	position: relative;
-	top: -1px;
+.read-more svg,
+.meta svg {
+  position: relative;
+  top: -1px;
 }
 
 .read-more {
-	background: #a77fde;
-	padding: 8px 14px 8px 14px;
-	color: #fff;
+  background: #a77fde;
+  padding: 8px 14px 8px 14px;
+  color: #fff;
   font-weight: 700;
-	border-radius: 4px;
-	text-transform: uppercase;
-	font-size: 12px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-size: 12px;
 }
 
-.read-more:hover{
+.read-more:hover {
   color: #fff;
   opacity: 0.85;
   text-decoration: none;
 }
 
-.hexagon-splash{
+.hexagon-splash {
   font-size: 200px;
   color: #646eff;
 }

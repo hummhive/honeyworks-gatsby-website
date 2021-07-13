@@ -5,16 +5,22 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react";
-import PropTypes from "prop-types";
-import Header from "./header";
-import "../../static/bootstrap.min.css";
-import "../../static/layout.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { HummContext } from 'gatsby-plugin-hummhive-react-web-data';
+import Header from './Header';
+import { useLocation } from '@reach/router';
+import '../../static/bootstrap.min.css';
+import '../../static/layout.css';
 
-const Layout = ({ children, header }) => {
+const Layout = ({ children }) => {
+  const { state } = React.useContext(HummContext);
+  const { isLoggedIn } = state;
+  const location = useLocation();
+
   return (
     <>
-      {header !== "no" && <Header />}
+      <Header initialStage={!isLoggedIn && location.pathname === '/' ? 1 : 0} />
       <main>{children}</main>
     </>
   );
@@ -22,7 +28,6 @@ const Layout = ({ children, header }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-  header: PropTypes.node,
 };
 
 export default Layout;

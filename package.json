@@ -50,14 +50,19 @@
     "webpack-cli": "^4.2.0"
   },
   "dependencies": {
+    "@fontsource/libre-baskerville": "^4.5.0",
     "@fontsource/nunito": "^4.2.1",
+    "@fontsource/nunito-sans": "^4.5.0",
     "babel-plugin-styled-components": "^1.12.0",
     "bootstrap": "^4.6.0",
-    "gatsby-plugin-hummhive-react-web-data": "^1.0.5",
+    "gatsby-plugin-hummhive-react-web-data": "^1.0.6",
     "gatsby-transformer-json": "^3.7.1",
     "path-browserify": "^1.0.1",
     "react-bootstrap": "^1.5.0",
     "react-copy-to-clipboard": "^5.0.3",
-    "regenerator-runtime": "^0.13.7"
+    "react-spring": "^9.2.3",
+    "react-use": "^17.2.4",
+    "regenerator-runtime": "^0.13.7",
+    "resize-observer-polyfill": "^1.5.1"
   }
 }
