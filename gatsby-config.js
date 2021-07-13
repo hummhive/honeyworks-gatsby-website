@@ -5,6 +5,12 @@ module.exports = {
   plugins: [
     'gatsby-plugin-hummhive-react-web-data',
     `gatsby-plugin-styled-components`,
+    {
+      resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
+      options: {
+        disable: false,
+      },
+    },
     `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-filesystem`,
