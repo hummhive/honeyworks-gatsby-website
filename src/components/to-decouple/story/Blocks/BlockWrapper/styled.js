@@ -15,7 +15,6 @@ export const Container = styled.div`
 
   * {
     font-family: 'Noto Serif JP';
-    font-weight: 500;
   }
 `;
 
