@@ -5,6 +5,7 @@ import Moment from 'react-moment';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
 import Loader from '../components/Loader';
+import NoPlublicContent from '../components/NoPlublicContent';
 import { HummContext } from 'gatsby-plugin-hummhive-react-web-data';
 
 const Home = () => {
@@ -19,6 +20,8 @@ const Home = () => {
     <Layout>
       <SEO title="Stories" />
       <div className="readable-content">
+        {storyIndex?.length === 0 && <NoPlublicContent />}
+
         <Loader isLoading={!storyIndex} size={48} color="rgba(0, 0, 0, 0.5)" />
         {storyIndex?.map((story, index) => (
           <div key={story.slug} className="post">
