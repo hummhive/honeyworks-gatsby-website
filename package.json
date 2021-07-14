@@ -58,6 +58,7 @@
     "babel-plugin-styled-components": "^1.13.2",
     "bootstrap": "^4.6.0",
     "gatsby-plugin-hummhive-react-web-data": "^1.0.8",
+    "gatsby-plugin-netlify": "^3.9.0",
     "gatsby-plugin-styled-components": "^4.9.0",
     "gatsby-transformer-json": "^3.7.1",
     "path-browserify": "^1.0.1",

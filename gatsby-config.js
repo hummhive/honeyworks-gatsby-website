@@ -11,6 +11,7 @@ module.exports = {
         disable: false,
       },
     },
+    'gatsby-plugin-netlify',
     `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-filesystem`,
