@@ -12,53 +12,57 @@ import {
 import { SubmitButton } from '../styled';
 
 // eslint-disable-next-line react/display-name
-const JoinSuccess = React.forwardRef(({ memberKeysBase64, setStage }, ref) => {
-  const [didCopy, setDidCopy] = React.useState(false);
+const JoinSuccess = React.forwardRef(
+  ({ hive, memberKeysBase64, setStage }, ref) => {
+    const [didCopy, setDidCopy] = React.useState(false);
 
-  React.useEffect(() => {
-    if (didCopy) setTimeout(() => setDidCopy(false), 3000);
-  }, [didCopy]);
+    React.useEffect(() => {
+      if (didCopy) setTimeout(() => setDidCopy(false), 3000);
+    }, [didCopy]);
 
-  return (
-    <JoinSuccessContainer ref={ref}>
-      <Inner>
-        <p>
-          You have succesfully signed up, please store the key below in a safe
-          place like a password manager. This key acts as both a username and
-          password and allows you to digitally sign and encrypt data. You will
-          need to this key in order to login on other devices.
-        </p>
-        <p>
-          This site is powered by HummHive which is an agent centric publisher
-          that might have different functionality from what you expect. If you
-          have requested access to a Group, you will not have access to that
-          Group&apos;s content until the Hive Creator re-encrypts thier content
-          for you. Why? (add link to FAQ)
-        </p>
-        <Row>
-          <KeyContainer>{memberKeysBase64}</KeyContainer>
-          <CopyToClipboard
-            text={memberKeysBase64}
-            onCopy={() => setDidCopy(true)}
-          >
-            <div
-              style={{
-                margin: 'auto',
-                cursor: 'pointer',
-              }}
+    return (
+      <JoinSuccessContainer ref={ref}>
+        <Inner>
+          <p>
+            You have succesfully joined {hive?.name}! Please store the key below
+            in a very safe place. This key is unique to you, acts as both a
+            username and password, and allows you to digitally sign, encrypt,
+            and access stories and media. You will need to this key in order to
+            login on other devices.
+          </p>
+          {/* <p>
+            This site is powered by HummHive which is an agent centric publisher
+            that might have different functionality from what you expect. If you
+            have requested access to a Group, you will not have access to that
+            Group&apos;s content until the Hive Creator re-encrypts thier
+            content for you. Why? (add link to FAQ)
+          </p> */}
+          <Row>
+            <KeyContainer>{memberKeysBase64}</KeyContainer>
+            <CopyToClipboard
+              text={memberKeysBase64}
+              onCopy={() => setDidCopy(true)}
             >
-              <FiCopy size={40} />
-            </div>
-          </CopyToClipboard>
-          <CopiedText isShowing={didCopy}>Copied</CopiedText>
-        </Row>
-        <SubmitButton onClick={() => setStage(0)}>Continue</SubmitButton>
-      </Inner>
-    </JoinSuccessContainer>
-  );
-});
+              <div
+                style={{
+                  margin: 'auto',
+                  cursor: 'pointer',
+                }}
+              >
+                <FiCopy size={40} />
+              </div>
+            </CopyToClipboard>
+            <CopiedText isShowing={didCopy}>Copied</CopiedText>
+          </Row>
+          <SubmitButton onClick={() => setStage(0)}>Continue</SubmitButton>
+        </Inner>
+      </JoinSuccessContainer>
+    );
+  }
+);
 
 JoinSuccess.propTypes = {
+  hive: PropTypes.object,
   memberKeysBase64: PropTypes.string,
   setStage: PropTypes.func,
 };
