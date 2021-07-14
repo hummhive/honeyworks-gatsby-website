@@ -31,10 +31,12 @@ export const HeaderContainer = styled(animated.div)`
 
 export const AnimationWrapper = styled(animated.div)`
   position: absolute;
-  top: 0;
+  top: ${(props) => props.baseComponentHeight}px;
   right: 0;
   bottom: 0;
   left: 0;
+  z-index: ${(props) => props.zIndex};
+  /* overflow-y: auto; */
 `;
 
 export const DescriptionContainer = styled.div`
@@ -49,15 +51,21 @@ export const TextInput = styled.input`
   outline: none;
   background: rgba(255, 255, 255, 0.2);
   width: 100%;
-  max-width: 700px;
+  max-width: 600px;
   color: white;
   padding: 24px;
   margin: 8px 0;
   border-radius: 48px;
+  font-size: 16px;
   font-weight: 600;
 
   ::placeholder {
     color: rgba(255, 255, 255, 0.6);
+  }
+
+  @media only screen and (max-width: 480px) {
+    padding: 16px;
+    font-size: 14px;
   }
 `;
 
@@ -68,10 +76,10 @@ export const SubmitButton = styled.button`
   color: black;
   border-radius: 40px;
   width: 100%;
-  height: 70px;
-  max-width: 700px;
-  padding: 0 24px;
+  max-width: 600px;
+  padding: 24px;
   margin: 8px 0;
+  font-size: 16px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.3em;
@@ -83,6 +91,11 @@ export const SubmitButton = styled.button`
 
   :hover {
     opacity: ${(props) => (props.disabled ? 0.6 : 0.8)};
+  }
+
+  @media only screen and (max-width: 480px) {
+    padding: 16px;
+    font-size: 14px;
   }
 `;
 

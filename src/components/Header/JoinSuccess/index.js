@@ -13,7 +13,7 @@ import { SubmitButton } from '../styled';
 
 // eslint-disable-next-line react/display-name
 const JoinSuccess = React.forwardRef(
-  ({ hive, memberKeysBase64, setStage }, ref) => {
+  ({ hive, memberKeysBase64, baseComponentHeight, setStage }, ref) => {
     const [didCopy, setDidCopy] = React.useState(false);
 
     React.useEffect(() => {
@@ -21,22 +21,15 @@ const JoinSuccess = React.forwardRef(
     }, [didCopy]);
 
     return (
-      <JoinSuccessContainer ref={ref}>
+      <JoinSuccessContainer ref={ref} baseComponentHeight={baseComponentHeight}>
         <Inner>
+          <h2>You have succesfully joined {hive?.name}!</h2>
           <p>
-            You have succesfully joined {hive?.name}! Please store the key below
-            in a very safe place. This key is unique to you, acts as both a
-            username and password, and allows you to digitally sign, encrypt,
-            and access stories and media. You will need to this key in order to
-            login on other devices.
+            Please store the key below in a very safe place. This key is unique
+            to you, acts as both a username and password, and allows you to
+            digitally sign, encrypt, and access stories and media. You will need
+            to this key in order to login on other devices.
           </p>
-          {/* <p>
-            This site is powered by HummHive which is an agent centric publisher
-            that might have different functionality from what you expect. If you
-            have requested access to a Group, you will not have access to that
-            Group&apos;s content until the Hive Creator re-encrypts thier
-            content for you. Why? (add link to FAQ)
-          </p> */}
           <Row>
             <KeyContainer>{memberKeysBase64}</KeyContainer>
             <CopyToClipboard
@@ -50,6 +43,7 @@ const JoinSuccess = React.forwardRef(
                 }}
               >
                 <FiCopy size={40} />
+                <p>Copy</p>
               </div>
             </CopyToClipboard>
             <CopiedText isShowing={didCopy}>Copied</CopiedText>
@@ -64,6 +58,7 @@ const JoinSuccess = React.forwardRef(
 JoinSuccess.propTypes = {
   hive: PropTypes.object,
   memberKeysBase64: PropTypes.string,
+  baseComponentHeight: PropTypes.number,
   setStage: PropTypes.func,
 };
 

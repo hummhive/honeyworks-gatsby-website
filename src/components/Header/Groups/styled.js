@@ -30,15 +30,31 @@ export const DescriptionContainer = styled.div`
 
   p {
     font-size: 18px;
+    margin: 0;
+    ${(props) =>
+      props.showFull
+        ? ''
+        : `
+      line-height: 1.5em;
+      height: 3em;
+      overflow: hidden;
+    `};
 
-    @media only screen and (min-width: 480px) and (max-width: 720px) {
+    @media only screen and (max-width: 720px) {
       font-size: 16px;
     }
-
-    @media only screen and (max-width: 480px) {
-      font-size: 14px;
-    }
   }
+`;
+
+export const ShowMoreContianer = styled.div`
+  display: inline-block;
+  color: black;
+  padding: 0 16px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  background: white;
+  /* margin-top: -20px; */
 `;
 
 export const GroupsContainer = styled.div`
@@ -51,9 +67,9 @@ export const GroupsContainer = styled.div`
   margin: 0 auto;
 `;
 
-export const Group = styled.div`
+export const GroupCard = styled.div`
   padding: 24px 0;
-  width: 250px;
+  width: 300px;
   height: 300px;
   margin: 0 8px;
   box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.2), 6px 6px 30px rgba(0, 0, 0, 0.2);
@@ -70,12 +86,12 @@ export const Group = styled.div`
   }
 
   @media only screen and (min-width: 480px) and (max-width: 720px) {
-    width: 225px;
+    width: 275px;
     height: 275px;
   }
 
   @media only screen and (max-width: 480px) {
-    width: 200px;
+    width: 250px;
     height: 250px;
   }
 `;
@@ -105,19 +121,16 @@ export const GroupTitle = styled.h3`
   }
 
   @media only screen and (max-width: 480px) {
-    font-size: 16px;
+    font-size: 18px;
   }
 `;
 
 export const GroupDescription = styled.p`
-  font-size: 15px;
+  font-size: 16px;
+  color: #363844;
 
-  @media only screen and (min-width: 480px) and (max-width: 720px) {
-    font-size: 13px;
-  }
-
-  @media only screen and (max-width: 480px) {
-    font-size: 11px;
+  @media only screen and (max-width: 720px) {
+    font-size: 15px;
   }
 `;
 

@@ -29,6 +29,14 @@ const Header = ({ initialStage = 0 }) => {
     if (!groups) actions.getGroups();
   }, []);
 
+  // lock body scroll for certain stages
+  React.useEffect(() => {
+    if ([2, 3, 4, 5].includes(stage)) {
+      document.body.style.overflow = 'hidden';
+      if (typeof window === 'object') window.scrollTo(0, 0);
+    } else document.body.style.overflow = 'unset';
+  }, [stage]);
+
   React.useEffect(() => {
     const initialheight =
       initialStage === 1 ? groupsSize.height : baseSize.height;
@@ -41,15 +49,15 @@ const Header = ({ initialStage = 0 }) => {
       case 0:
         return baseSize.height;
       case 1:
-        return groupsSize.height;
+        return groupsSize.height + baseSize.height;
       case 2:
-        return joinSize.height;
+        return joinSize.height + baseSize.height;
       case 3:
-        return signinSize.height;
+        return signinSize.height + baseSize.height;
       case 4:
-        return accountSize.height;
+        return accountSize.height + baseSize.height;
       case 5:
-        return joinSuccessSize.height;
+        return joinSuccessSize.height + baseSize.height;
       default:
         return 0;
     }
@@ -58,9 +66,6 @@ const Header = ({ initialStage = 0 }) => {
   const containerSpring = useSpring({
     immediate: !didInit,
     height: getHeight(),
-  });
-  const baseSpring = useSpring({
-    opacity: stage === 0 ? 1 : 0,
   });
   const groupsSpring = useSpring({
     transform: stage === 1 ? 'translateY(0px)' : 'translateY(-100px)',
@@ -90,65 +95,74 @@ const Header = ({ initialStage = 0 }) => {
   return (
     <>
       <HeaderContainer style={containerSpring} height={baseSize.height}>
-        <AnimationWrapper
+        <Base
+          ref={baseRef}
+          isLoggedIn={isLoggedIn}
+          activeStage={stage}
+          setStage={setStage}
+        />
+        {/* <AnimationWrapper
           style={{ ...baseSpring, zIndex: stage === 0 ? 2 : 1 }}
         >
-          <Base
-            ref={baseRef}
-            hive={hive}
-            isLoggedIn={isLoggedIn}
-            setStage={setStage}
-          />
-        </AnimationWrapper>
+        </AnimationWrapper> */}
         <AnimationWrapper
-          style={{ ...groupsSpring, zIndex: stage === 1 ? 2 : 1 }}
+          baseComponentHeight={baseSize.height}
+          zIndex={stage === 1 ? 2 : 1}
+          style={groupsSpring}
         >
           <Groups
             ref={groupsRef}
             hive={hive}
             groups={groups}
-            activeStage={stage}
             setStage={setStage}
           />
         </AnimationWrapper>
         <AnimationWrapper
-          style={{ ...joinSpring, zIndex: stage === 2 ? 2 : 1 }}
+          baseComponentHeight={baseSize.height}
+          zIndex={stage === 2 ? 2 : 1}
+          style={joinSpring}
         >
           <Join
             ref={joinRef}
             hive={hive}
             joinHive={actions.joinHive}
-            activeStage={stage}
+            baseComponentHeight={baseSize.height}
             setStage={setStage}
           />
         </AnimationWrapper>
         <AnimationWrapper
-          style={{ ...signinSpring, zIndex: stage === 3 ? 2 : 1 }}
+          baseComponentHeight={baseSize.height}
+          zIndex={stage === 3 ? 2 : 1}
+          style={signinSpring}
         >
           <Signin
             ref={signinRef}
-            activeStage={stage}
             signin={actions.login}
+            baseComponentHeight={baseSize.height}
             setStage={setStage}
           />
         </AnimationWrapper>
         <AnimationWrapper
-          style={{ ...accountSpring, zIndex: stage === 4 ? 2 : 1 }}
+          baseComponentHeight={baseSize.height}
+          zIndex={stage === 4 ? 2 : 1}
+          style={accountSpring}
         >
           <Account
             ref={accountRef}
-            hive={hive}
-            activeStage={stage}
+            baseComponentHeight={baseSize.height}
             setStage={setStage}
           />
         </AnimationWrapper>
         <AnimationWrapper
-          style={{ ...joinSuccessSpring, zIndex: stage === 5 ? 2 : 1 }}
+          baseComponentHeight={baseSize.height}
+          zIndex={stage === 5 ? 2 : 1}
+          style={joinSuccessSpring}
         >
           <JoinSuccess
             ref={joinSuccessRef}
             hive={hive}
             memberKeysBase64={memberKeysBase64}
+            baseComponentHeight={baseSize.height}
             setStage={setStage}
           />
         </AnimationWrapper>

@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { JoinContainer, Inner } from './styled';
-import CloseButton from '../CloseButton';
 import { TextInput, SubmitButton, Error } from '../styled';
 import Loader from '../../Loader';
 
 // eslint-disable-next-line react/display-name
 const Join = React.forwardRef(
-  ({ hive, joinHive, activeStage, setStage }, ref) => {
+  ({ hive, joinHive, baseComponentHeight, setStage }, ref) => {
     const [isLoading, setIsLoading] = React.useState(false);
     const [username, setUsername] = React.useState('');
     const [email, setEmail] = React.useState('');
@@ -46,15 +45,8 @@ const Join = React.forwardRef(
       }
     };
 
-    const handleClose = () => {
-      setUsername('');
-      setEmail('');
-      setError(null);
-      setStage(1);
-    };
-
     return (
-      <JoinContainer ref={ref}>
+      <JoinContainer ref={ref} baseComponentHeight={baseComponentHeight}>
         <Inner>
           {error && <Error>Error: {error}</Error>}
           <form onSubmit={handleJoin}>
@@ -72,15 +64,9 @@ const Join = React.forwardRef(
             />
             <SubmitButton disabled={isLoading}>
               <Loader isLoading={isLoading} size={32} />
-              {!isLoading && 'Join Hive'}
+              {!isLoading && 'Join'}
             </SubmitButton>
           </form>
-          <CloseButton
-            activeStage={activeStage}
-            showingStage={2}
-            delay={1000}
-            onClick={handleClose}
-          />
         </Inner>
       </JoinContainer>
     );
@@ -90,7 +76,7 @@ const Join = React.forwardRef(
 Join.propTypes = {
   hive: PropTypes.object,
   joinHive: PropTypes.func,
-  activeStage: PropTypes.number,
+  baseComponentHeight: PropTypes.number,
   setStage: PropTypes.func,
 };
 

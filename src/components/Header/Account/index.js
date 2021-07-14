@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { HummContext } from 'gatsby-plugin-hummhive-react-web-data';
-import CloseButton from '../CloseButton';
 import { FiLock, FiUnlock } from 'react-icons/fi';
 import { AccountContainer, Inner } from './styled';
 
 // eslint-disable-next-line react/display-name
-const Account = React.forwardRef(({ activeStage, setStage }, ref) => {
+const Account = React.forwardRef(({ baseComponentHeight, setStage }, ref) => {
   const { state, actions } = React.useContext(HummContext);
   const { memberKeysBase64 } = state;
   const [showKey, setShowKey] = React.useState(false);
@@ -22,7 +21,7 @@ const Account = React.forwardRef(({ activeStage, setStage }, ref) => {
   };
 
   return (
-    <AccountContainer ref={ref}>
+    <AccountContainer ref={ref} baseComponentHeight={baseComponentHeight}>
       <Inner>
         {error && (
           <div className="alert alert-danger" role="alert">
@@ -105,19 +104,13 @@ const Account = React.forwardRef(({ activeStage, setStage }, ref) => {
             </button>
           </div>
         </div>
-        <CloseButton
-          activeStage={activeStage}
-          showingStage={4}
-          delay={1000}
-          onClick={() => setStage(0)}
-        />
       </Inner>
     </AccountContainer>
   );
 });
 
 Account.propTypes = {
-  activeStage: PropTypes.number,
+  baseComponentHeight: PropTypes.number,
   setStage: PropTypes.func,
 };
 
