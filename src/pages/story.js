@@ -20,7 +20,7 @@ const Story = ({ id }) => {
     <Layout>
       <div className="readable-content">
         <Loader isLoading={isLoading} size={48} color="rgba(0, 0, 0, 0.5)" />
-        {!story && !isLoading && (
+        {state.stories[id] === null && (
           <div className="alert alert-danger" role="alert">
             Story not found
           </div>
