@@ -11,7 +11,7 @@ import Signin from './Signin';
 import Account from './Account';
 import { HeaderContainer, AnimationWrapper } from './styled';
 
-const Header = ({ initialStage = 0 }) => {
+const Header = ({ bodyRef, initialStage = 0 }) => {
   const { state, actions } = React.useContext(HummContext);
   const { hive, groups, memberKeysBase64, isLoggedIn } = state;
 
@@ -31,10 +31,12 @@ const Header = ({ initialStage = 0 }) => {
 
   // lock body scroll for certain stages
   React.useEffect(() => {
-    if ([2, 3, 4, 5].includes(stage)) {
-      document.body.style.overflow = 'hidden';
+    if ([2, 3, 4, 5].includes(stage) && bodyRef.current) {
+      bodyRef.current.style.maxHeight = '100vh';
       if (typeof window === 'object') window.scrollTo(0, 0);
-    } else document.body.style.overflow = 'unset';
+    } else {
+      bodyRef.current.style.maxHeight = 'unset';
+    }
   }, [stage]);
 
   React.useEffect(() => {
@@ -172,6 +174,7 @@ const Header = ({ initialStage = 0 }) => {
 };
 
 Header.propTypes = {
+  bodyRef: PropTypes.object,
   initialStage: PropTypes.number,
 };
 

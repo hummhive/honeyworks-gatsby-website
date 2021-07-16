@@ -14,6 +14,7 @@ import '../../static/bootstrap.min.css';
 import '../../static/layout.css';
 
 const Layout = ({ children }) => {
+  const bodyRef = React.useRef();
   const { state } = React.useContext(HummContext);
   const { isLoggedIn } = state;
   const location = useLocation();
@@ -22,14 +23,15 @@ const Layout = ({ children }) => {
     window.localStorage.getItem('dismissed-groups-header');
 
   return (
-    <>
+    <div ref={bodyRef} style={{ overflow: 'hidden' }}>
       <Header
+        bodyRef={bodyRef}
         initialStage={
           !isLoggedIn && location.pathname === '/' && !dismissedGroups ? 1 : 0
         }
       />
       <main>{children}</main>
-    </>
+    </div>
   );
 };
 

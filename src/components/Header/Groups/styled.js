@@ -98,7 +98,7 @@ export const GroupCard = styled.div`
 
 export const UpperGroupContainer = styled.div`
   flex: 1 1 0;
-  overflow: auto;
+  overflow-y: scroll;
   padding: 0 24px;
   margin-bottom: 8px;
 `;
