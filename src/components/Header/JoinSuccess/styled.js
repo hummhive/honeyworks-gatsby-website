@@ -28,28 +28,13 @@ export const Inner = styled.div`
     }
   }
 
-  p {
+  > p {
     font-size: 18px;
     margin-bottom: 32px;
+    text-align: center;
 
     @media only screen and (max-width: 480px) {
       font-size: 16px;
     }
-  }
-`;
-
-export const Row = styled.div`
-  display: flex;
-  margin: 48px 0;
-  position: relative;
-
-  p {
-    margin-bottom: 0;
-    font-size: 14px;
-    text-align: center;
-  }
-
-  @media only screen and (max-width: 480px) {
-    flex-direction: column;
   }
 `;

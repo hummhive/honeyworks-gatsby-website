@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import KeyContainer from '../KeyContainer';
-import { JoinSuccessContainer, Inner, Row } from './styled';
+import { JoinSuccessContainer, Inner } from './styled';
 import { SubmitButton } from '../styled';
 
 // eslint-disable-next-line react/display-name
@@ -17,9 +17,8 @@ const JoinSuccess = React.forwardRef(
             digitally sign, encrypt, and access stories and media. You will need
             to this key in order to login on other devices.
           </p>
-          <Row>
-            <KeyContainer keyString={secretKeyBase64} isHiddenByDefault />
-          </Row>
+          <KeyContainer keyString={secretKeyBase64} isHiddenByDefault />
+          <div style={{ height: 32 }} />
           <SubmitButton onClick={() => setStage(0)}>Continue</SubmitButton>
         </Inner>
       </JoinSuccessContainer>
