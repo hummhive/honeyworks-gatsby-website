@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   flags: {
     DEV_SSR: false,
@@ -17,7 +19,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `coreStaticData`,
-        path: `${__dirname}/config/coreStaticData`,
+        path: path.resolve('config/coreStaticData'),
       },
     },
     `gatsby-transformer-json`,
