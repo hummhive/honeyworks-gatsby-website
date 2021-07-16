@@ -29,8 +29,12 @@ const Base = React.forwardRef(({ isLoggedIn, activeStage, setStage }, ref) => {
             </Button>
           ) : (
             <>
-              <Button onClick={() => setStage(activeStage === 1 ? 0 : 1)}>
-                {activeStage === 1 ? 'Close' : 'Join'}
+              <Button
+                onClick={() =>
+                  setStage(activeStage === 1 || activeStage === 2 ? 0 : 1)
+                }
+              >
+                {activeStage === 1 || activeStage === 2 ? 'Close' : 'Join'}
               </Button>
               <Button onClick={() => setStage(activeStage === 3 ? 0 : 3)}>
                 {activeStage === 3 ? 'Close' : 'Sign In'}

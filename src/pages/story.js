@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../components/layout';
 import PropTypes from 'prop-types';
 import { HummContext } from 'gatsby-plugin-hummhive-react-web-data';
-import Moment from 'react-moment';
+// import Moment from 'react-moment';
 import SEO from '../components/seo';
 import Loader from '../components/Loader';
 import DocumentBuilder from '../components/to-decouple/story/documentBuilder';
@@ -33,7 +33,8 @@ const Story = ({ id }) => {
             </div>
             <div className="meta d-flex pt-1 mb-3">
               <div className="date">
-                <Moment format="MMM D">{story.createdAt}</Moment>
+                {story.createdAt}
+                {/* <Moment format="MMM D">{story.createdAt}</Moment> */}
               </div>
             </div>
             {JSON.parse(story.body).map((element, i) => (

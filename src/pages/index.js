@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
-import Moment from 'react-moment';
+// import Moment from 'react-moment';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
 import Loader from '../components/Loader';
@@ -37,7 +37,8 @@ const Home = () => {
             </Link>
             <div className="meta d-flex pt-1">
               <div className="date">
-                <Moment format="MMM D">{story.createdAt}</Moment>
+                {story.createdAt}
+                {/* <Moment format="MMM D">{story.createdAt}</Moment> */}
               </div>
             </div>
           </div>
