@@ -48,13 +48,13 @@ export const DescriptionContainer = styled.div`
 
 export const ShowMoreContianer = styled.div`
   display: inline-block;
-  color: black;
+  color: white;
   padding: 0 16px;
   border-radius: 4px;
   font-size: 12px;
   font-weight: 600;
-  background: white;
-  /* margin-top: -20px; */
+  background: rgba(255, 255, 255, 0.3);
+  margin-top: 12px;
 `;
 
 export const GroupsContainer = styled.div`
