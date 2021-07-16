@@ -29,9 +29,9 @@ const Account = React.forwardRef(({ baseComponentHeight, setStage }, ref) => {
         <h3>My Keys</h3>
 
         <label>Signing Public Key</label>
-        <KeyContainer keyString={keySetBase64.signing.public.toString()} />
+        <KeyContainer keyString={keySetBase64?.signing.public.toString()} />
         <label>Encryption Public Key</label>
-        <KeyContainer keyString={keySetBase64.encryption.public.toString()} />
+        <KeyContainer keyString={keySetBase64?.encryption.public.toString()} />
         <label>
           Secret Key{' '}
           <span style={{ fontWeight: 400 }}>
