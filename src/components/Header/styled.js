@@ -63,9 +63,11 @@ export const TextInput = styled.input`
     color: rgba(255, 255, 255, 0.6);
   }
 
+  @media only screen and (max-width: 600px) {
+    -webkit-appearance: none;
+  }
   @media only screen and (max-width: 480px) {
     padding: 16px;
-    font-size: 14px;
   }
 `;
 
