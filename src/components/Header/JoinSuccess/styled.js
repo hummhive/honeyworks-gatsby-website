@@ -29,7 +29,7 @@ export const Inner = styled.div`
   }
 
   > p {
-    font-size: 18px;
+    font-size: 17px;
     margin-bottom: 32px;
     text-align: center;
 

@@ -70,7 +70,7 @@ export const GroupsContainer = styled.div`
 export const GroupCard = styled.div`
   padding: 24px 0;
   width: 300px;
-  height: 300px;
+  height: 250px;
   margin: 0 8px;
   box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.2), 6px 6px 30px rgba(0, 0, 0, 0.2);
   border-radius: 12px;
@@ -128,6 +128,8 @@ export const GroupTitle = styled.h3`
 export const GroupDescription = styled.p`
   font-size: 16px;
   color: #363844;
+  text-align: center;
+  margin: 16px 0 0 0;
 
   @media only screen and (max-width: 720px) {
     font-size: 15px;

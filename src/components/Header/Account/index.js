@@ -48,8 +48,8 @@ const Account = React.forwardRef(({ baseComponentHeight, setStage }, ref) => {
           <div style={{ flex: '1 1 auto' }}>
             <label>End Session In This Browser</label>
             <p>
-              You will need to use your key in order to login once you destroy
-              your session in this browser.
+              You will need to use your key in order to login once you end your
+              session in this browser.
             </p>
           </div>
           <div style={{ flex: '1 0 auto' }}>
