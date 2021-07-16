@@ -13,7 +13,7 @@ import { HeaderContainer, AnimationWrapper } from './styled';
 
 const Header = ({ bodyRef, initialStage = 0 }) => {
   const { state, actions } = React.useContext(HummContext);
-  const { hive, groups, memberKeysBase64, isLoggedIn } = state;
+  const { hive, groups, secretKeyBase64, isLoggedIn } = state;
 
   const [didInit, setDidInit] = React.useState(false);
   const [stage, setStage] = React.useState(initialStage);
@@ -163,7 +163,7 @@ const Header = ({ bodyRef, initialStage = 0 }) => {
           <JoinSuccess
             ref={joinSuccessRef}
             hive={hive}
-            memberKeysBase64={memberKeysBase64}
+            secretKeyBase64={secretKeyBase64}
             baseComponentHeight={baseSize.height}
             setStage={setStage}
           />

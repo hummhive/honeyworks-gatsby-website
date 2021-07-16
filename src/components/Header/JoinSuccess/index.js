@@ -1,25 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { FiCopy } from 'react-icons/fi';
-import {
-  JoinSuccessContainer,
-  Inner,
-  Row,
-  KeyContainer,
-  CopiedText,
-} from './styled';
+import KeyContainer from '../KeyContainer';
+import { JoinSuccessContainer, Inner, Row } from './styled';
 import { SubmitButton } from '../styled';
 
 // eslint-disable-next-line react/display-name
 const JoinSuccess = React.forwardRef(
-  ({ hive, memberKeysBase64, baseComponentHeight, setStage }, ref) => {
-    const [didCopy, setDidCopy] = React.useState(false);
-
-    React.useEffect(() => {
-      if (didCopy) setTimeout(() => setDidCopy(false), 3000);
-    }, [didCopy]);
-
+  ({ hive, secretKeyBase64, baseComponentHeight, setStage }, ref) => {
     return (
       <JoinSuccessContainer ref={ref} baseComponentHeight={baseComponentHeight}>
         <Inner>
@@ -31,22 +18,7 @@ const JoinSuccess = React.forwardRef(
             to this key in order to login on other devices.
           </p>
           <Row>
-            <KeyContainer>{memberKeysBase64}</KeyContainer>
-            <CopyToClipboard
-              text={memberKeysBase64}
-              onCopy={() => setDidCopy(true)}
-            >
-              <div
-                style={{
-                  margin: 'auto',
-                  cursor: 'pointer',
-                }}
-              >
-                <FiCopy size={40} />
-                <p>Copy</p>
-              </div>
-            </CopyToClipboard>
-            <CopiedText isShowing={didCopy}>Copied</CopiedText>
+            <KeyContainer keyString={secretKeyBase64} isHiddenByDefault />
           </Row>
           <SubmitButton onClick={() => setStage(0)}>Continue</SubmitButton>
         </Inner>
@@ -57,7 +29,7 @@ const JoinSuccess = React.forwardRef(
 
 JoinSuccess.propTypes = {
   hive: PropTypes.object,
-  memberKeysBase64: PropTypes.string,
+  secretKeyBase64: PropTypes.string,
   baseComponentHeight: PropTypes.number,
   setStage: PropTypes.func,
 };

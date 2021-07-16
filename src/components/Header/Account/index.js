@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { HummContext } from 'gatsby-plugin-hummhive-react-web-data';
-import { FiLock, FiUnlock } from 'react-icons/fi';
-import { AccountContainer, Inner } from './styled';
+import KeyContainer from '../KeyContainer';
+import { AccountContainer, Inner, Row, Button } from './styled';
+import { Error } from '../styled';
 
 // eslint-disable-next-line react/display-name
 const Account = React.forwardRef(({ baseComponentHeight, setStage }, ref) => {
   const { state, actions } = React.useContext(HummContext);
-  const { memberKeysBase64 } = state;
-  const [showKey, setShowKey] = React.useState(false);
+  const { keySetBase64, secretKeyBase64 } = state;
   const [error, setError] = React.useState(false);
 
   const handleLogout = async () => {
@@ -23,46 +23,40 @@ const Account = React.forwardRef(({ baseComponentHeight, setStage }, ref) => {
   return (
     <AccountContainer ref={ref} baseComponentHeight={baseComponentHeight}>
       <Inner>
-        {error && (
-          <div className="alert alert-danger" role="alert">
-            {error}
-          </div>
-        )}
-        <h5 className="pb-4 mb-0">My Account</h5>
-        <div className="row w-100 pt-3 pb-3 media">
-          <div className="col-6">
-            <p className="media-body mb-0 small lh-125">
-              <strong className="d-block">My Key</strong>
-              Make sure to store your key in a safe place.
+        {error && <Error>Error: {error}</Error>}
+
+        <h2>My Account</h2>
+        <h3>My Keys</h3>
+
+        <label>Signing Public Key</label>
+        <KeyContainer keyString={keySetBase64.signing.public.toString()} />
+        <label>Encryption Public Key</label>
+        <KeyContainer keyString={keySetBase64.encryption.public.toString()} />
+        <label>
+          Secret Key{' '}
+          <span style={{ fontWeight: 400 }}>
+            (Make sure to store this in a safe place)
+          </span>
+        </label>
+        <KeyContainer keyString={secretKeyBase64} isHiddenByDefault />
+
+        <div style={{ height: 64 }} />
+
+        <h3>Actions</h3>
+
+        <Row>
+          <div style={{ flex: '1 1 auto' }}>
+            <label>End Session In This Browser</label>
+            <p>
+              You will need to use your key in order to login once you destroy
+              your session in this browser.
             </p>
           </div>
-          <div className="col-6 d-flex align-items-center justify-content-end my-auto">
-            <small onClick={() => setShowKey(true)}>
-              {showKey ? (
-                <div className="d-flex align-items-center">
-                  <FiUnlock
-                    style={{
-                      fontSize: '15px',
-                      marginRight: '9px',
-                      width: '30px',
-                    }}
-                  />{' '}
-                  <span className="text-break">{memberKeysBase64}</span>
-                </div>
-              ) : (
-                <div className="d-flex align-items-center">
-                  <FiLock
-                    style={{
-                      fontSize: '15px',
-                      width: '30px',
-                    }}
-                  />{' '}
-                  <span>Click here to unlock your keys</span>
-                </div>
-              )}
-            </small>
+          <div style={{ flex: '1 0 auto' }}>
+            <Button onClick={handleLogout}>End Session</Button>
           </div>
-        </div>
+        </Row>
+
         {/* {getBillingPortal() && (
             <div className="row w-100 pt-3 pb-3 media text-muted">
               <div className="col-6">
@@ -84,26 +78,6 @@ const Account = React.forwardRef(({ baseComponentHeight, setStage }, ref) => {
               </div>
             </div>
           )} */}
-        <div className="row w-100 pt-3 pb-3 media">
-          <div className="col-6">
-            <p className="media-body mb-0 small lh-125">
-              <strong className="d-block text-danger">
-                Destroy Session in this Browser
-              </strong>
-              You will need to use your key in order to login once you destroy
-              your session in this browser. <br />
-            </p>
-          </div>
-          <div className="col-6 d-flex align-items-center justify-content-end text-break my-auto">
-            <button
-              type="button"
-              className="btn btn-outline-danger"
-              onClick={handleLogout}
-            >
-              End Session
-            </button>
-          </div>
-        </div>
       </Inner>
     </AccountContainer>
   );

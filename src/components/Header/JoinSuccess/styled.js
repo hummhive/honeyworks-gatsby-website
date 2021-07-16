@@ -53,33 +53,3 @@ export const Row = styled.div`
     flex-direction: column;
   }
 `;
-
-export const KeyContainer = styled.div`
-  border: solid 2px white;
-  border-radius: 8px;
-  padding: 16px;
-  flex: 1;
-  margin-right: 16px;
-  max-width: 100%;
-  overflow-x: scroll;
-
-  @media only screen and (max-width: 480px) {
-    margin-bottom: 16px;
-  }
-`;
-
-export const CopiedText = styled.p`
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.6);
-  position: absolute;
-  top: -32px;
-  right: 0;
-  transition: all 300ms ease-in-out;
-  transform: ${(props) =>
-    props.isShowing ? 'translateY(0)' : 'translateY(-25px)'};
-  opacity: ${(props) => (props.isShowing ? 1 : 0)};
-
-  @media only screen and (max-width: 480px) {
-    right: calc(50% - 22px);
-  }
-`;
