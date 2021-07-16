@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { animated } from 'react-spring';
 
 export const Container = styled.div`
   display: flex;
@@ -27,22 +28,24 @@ export const DescriptionContainer = styled.div`
       font-size: 26px;
     }
   }
+`;
 
-  p {
-    font-size: 18px;
-    margin: 0;
-    ${(props) =>
-      props.showFull
-        ? ''
-        : `
-      line-height: 1.5em;
+export const HiveDescription = styled(animated.p)`
+  font-size: 18px;
+  margin: 0;
+  max-width: 600px;
+
+  ${(props) =>
+    props.showFull
+      ? ''
+      : `
       height: 3em;
-      overflow: hidden;
-    `};
+      `};
+  line-height: 1.5em;
+  overflow: hidden;
 
-    @media only screen and (max-width: 720px) {
-      font-size: 16px;
-    }
+  @media only screen and (max-width: 720px) {
+    font-size: 16px;
   }
 `;
 
@@ -55,6 +58,8 @@ export const ShowMoreContianer = styled.div`
   font-weight: 600;
   background: rgba(255, 255, 255, 0.3);
   margin-top: 12px;
+  opacity: ${(props) => (props.isHidden ? 0 : 1)};
+  transition: opacity: 300ms ease-in-out;
 `;
 
 export const GroupsContainer = styled.div`
