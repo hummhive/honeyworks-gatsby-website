@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../components/layout';
 import PropTypes from 'prop-types';
 import { HummContext } from 'gatsby-plugin-hummhive-react-web-data';
-// import Moment from 'react-moment';
+import formatDateString from '../utils/formatDateString';
 import SEO from '../components/seo';
 import Loader from '../components/Loader';
 import DocumentBuilder from '../components/to-decouple/story/documentBuilder';
@@ -11,6 +11,7 @@ const Story = ({ id }) => {
   const { state, actions } = React.useContext(HummContext);
   const isLoading = state.loadingStories.some((loadingId) => loadingId === id);
   const story = state.stories[id];
+  const publishedAt = story && formatDateString(story.publishedAt);
 
   React.useEffect(() => {
     if (!story && !isLoading) actions.getStory(id);
@@ -32,10 +33,7 @@ const Story = ({ id }) => {
               <h1>{story.title}</h1>
             </div>
             <div className="meta d-flex pt-1 mb-3">
-              <div className="date">
-                {story.createdAt}
-                {/* <Moment format="MMM D">{story.createdAt}</Moment> */}
-              </div>
+              <div className="date">{publishedAt}</div>
             </div>
             {JSON.parse(story.body).map((element, i) => (
               <DocumentBuilder key={i} element={element} />
