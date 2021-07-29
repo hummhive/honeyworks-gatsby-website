@@ -10,14 +10,33 @@ import PropTypes from 'prop-types';
 import { HummContext } from 'gatsby-plugin-hummhive-react-web-data';
 import Header from './Header';
 import { useLocation } from '@reach/router';
+import { navigate } from 'gatsby';
 import '../../static/bootstrap.min.css';
 import '../../static/layout.css';
 
 const Layout = ({ children }) => {
   const bodyRef = React.useRef();
-  const { state } = React.useContext(HummContext);
+  const { state, actions } = React.useContext(HummContext);
   const { isLoggedIn } = state;
   const location = useLocation();
+
+  const login = async (key) => {
+    try {
+      await actions.login(key);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  // handle query param secret key login
+  React.useEffect(() => {
+    const search = new URLSearchParams(location.search);
+    const secretKey = search.get('sk');
+
+    if (secretKey && !isLoggedIn) login(secretKey);
+    navigate(location.pathname);
+  }, [location.search]);
+
   const dismissedGroups =
     typeof window === 'object' &&
     window.localStorage.getItem('dismissed-groups-header');
