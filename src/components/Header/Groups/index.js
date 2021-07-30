@@ -39,27 +39,21 @@ const Groups = React.forwardRef(({ hive, groups, setStage }, ref) => {
             showFull={showFullDescription}
             style={descriptionSpring}
           >
-            Hive description coming soon. Hive description coming soon. Hive
-            description coming soon. Hive description coming soon. Hive
-            description coming soon.
+            {hive?.description}
           </HiveDescription>
           <HiveDescription
             ref={collapsedHeightDescriptionRef}
             showFull={false}
             style={{ position: 'fixed', zIndex: -10, opacity: 0 }}
           >
-            Hive description coming soon. Hive description coming soon. Hive
-            description coming soon. Hive description coming soon. Hive
-            description coming soon.
+            {hive?.description}
           </HiveDescription>
           <HiveDescription
             ref={fullHeightDescriptionRef}
             showFull
             style={{ position: 'fixed', zIndex: -10, opacity: 0 }}
           >
-            Hive description coming soon. Hive description coming soon. Hive
-            description coming soon. Hive description coming soon. Hive
-            description coming soon.
+            {hive?.description}
           </HiveDescription>
 
           <ShowMoreContianer
@@ -77,12 +71,7 @@ const Groups = React.forwardRef(({ hive, groups, setStage }, ref) => {
           <GroupCard>
             <UpperGroupContainer>
               <GroupTitle>Join Hive</GroupTitle>
-              <GroupDescription>
-                By joining {hive?.name}, you get access to all of {hive?.name}
-                &apos;s public content and can get sent encrypted media
-                directly. The Hive Creator may also give you access to private
-                Group content.
-              </GroupDescription>
+              <GroupDescription>{hive?.joinText}</GroupDescription>
             </UpperGroupContainer>
             <LowerGroupContainer>
               <JoinGroupButton onClick={() => setStage(2)}>
