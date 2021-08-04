@@ -23,7 +23,7 @@ const Story = ({ id }) => {
         <Loader isLoading={isLoading} size={48} color="rgba(0, 0, 0, 0.5)" />
         {state.stories[id] === null && (
           <div className="alert alert-danger" role="alert">
-            Story not found
+            Story not found, or you don&apos;t have access to it.
           </div>
         )}
         {story && (
