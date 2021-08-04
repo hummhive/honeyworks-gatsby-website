@@ -34,7 +34,7 @@ const Layout = ({ children }) => {
     const secretKey = search.get('sk');
 
     if (secretKey && !isLoggedIn) login(secretKey);
-    navigate(location.pathname);
+    if (secretKey) navigate(location.pathname, { replace: true });
   }, [location.search]);
 
   const dismissedGroups =
