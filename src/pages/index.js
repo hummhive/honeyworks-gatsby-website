@@ -10,11 +10,11 @@ import formatDateString from '../utils/formatDateString';
 
 const Home = () => {
   const { state, actions } = React.useContext(HummContext);
-  let { storyIndex } = state;
+  let { storyIndex, isLoadingStoryIndex } = state;
 
   React.useEffect(() => {
-    if (!storyIndex) actions.getStoryIndex();
-  }, []);
+    if (!storyIndex && !isLoadingStoryIndex) actions.getStoryIndex();
+  });
 
   return (
     <Layout>
