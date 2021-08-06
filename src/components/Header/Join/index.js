@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { navigate } from 'gatsby';
+import { useLocation } from '@reach/router';
 import { JoinContainer, Inner, InviteTokenText } from './styled';
 import { TextInput, SubmitButton, Error } from '../styled';
 import Loader from '../../Loader';
@@ -8,6 +9,7 @@ import Loader from '../../Loader';
 // eslint-disable-next-line react/display-name
 const Join = React.forwardRef(
   ({ hive, joinHive, baseComponentHeight, setStage }, ref) => {
+    const location = useLocation();
     const [isLoading, setIsLoading] = React.useState(false);
     const [username, setUsername] = React.useState('');
     const [email, setEmail] = React.useState('');

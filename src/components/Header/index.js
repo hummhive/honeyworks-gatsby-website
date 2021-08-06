@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSpring } from 'react-spring';
 import { useMeasure } from 'react-use';
+import { useLocation } from '@reach/router';
 import { HummContext } from 'gatsby-plugin-hummhive-react-web-data';
 import Base from './Base';
 import Groups from './Groups';
@@ -12,6 +13,7 @@ import Account from './Account';
 import { HeaderContainer, AnimationWrapper } from './styled';
 
 const Header = ({ bodyRef, initialStage = 0 }) => {
+  const location = useLocation();
   const { state, actions } = React.useContext(HummContext);
   const { hive, groups, secretKeyBase64, isLoggedIn } = state;
 
