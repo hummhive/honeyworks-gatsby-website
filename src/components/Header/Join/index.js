@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { JoinContainer, Inner } from './styled';
+import { navigate } from 'gatsby';
+import { JoinContainer, Inner, InviteTokenText } from './styled';
 import { TextInput, SubmitButton, Error } from '../styled';
 import Loader from '../../Loader';
 
@@ -10,7 +11,19 @@ const Join = React.forwardRef(
     const [isLoading, setIsLoading] = React.useState(false);
     const [username, setUsername] = React.useState('');
     const [email, setEmail] = React.useState('');
+    const [inviteToken, setInviteToken] = React.useState(null);
     const [error, setError] = React.useState(null);
+
+    // handle query param invite token
+    React.useEffect(() => {
+      const search = new URLSearchParams(location.search);
+      const token = search.get('invite-token');
+
+      if (token) {
+        setInviteToken(token);
+        navigate(location.pathname, { replace: true });
+      }
+    }, [location.search]);
 
     const handleJoin = async (e) => {
       try {
@@ -33,7 +46,12 @@ const Join = React.forwardRef(
         }
 
         setIsLoading(true);
-        await joinHive(hive, username, email, null);
+        await joinHive({
+          hiveEncryptionPublicKey: hive.encryptionPublicKey,
+          username,
+          email,
+          inviteToken,
+        });
 
         setIsLoading(false);
         setStage(5);
@@ -50,6 +68,14 @@ const Join = React.forwardRef(
         <Inner>
           {error && <Error>Error: {error}</Error>}
           <form onSubmit={handleJoin}>
+            {inviteToken && (
+              <>
+                <InviteTokenText>
+                  <h4>Invite Token:</h4>
+                  <p>{inviteToken}</p>
+                </InviteTokenText>
+              </>
+            )}
             <TextInput
               type="email"
               placeholder="Email address (optional)"

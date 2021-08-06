@@ -48,7 +48,7 @@ export const AccountContainer = styled.div`
 export const Inner = styled.div`
   padding: 24px;
   width: 100%;
-  max-width: 700px;
+  max-width: 600px;
   margin: auto;
 `;
 

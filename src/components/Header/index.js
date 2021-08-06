@@ -46,6 +46,13 @@ const Header = ({ bodyRef, initialStage = 0 }) => {
     if (!didInit && initialheight > 0) setDidInit(true);
   }, [baseSize.height, groupsSize.height]);
 
+  // open join if there is an invite token
+  React.useEffect(() => {
+    const search = new URLSearchParams(location.search);
+    const token = search.get('invite-token');
+    if (token) setStage(2);
+  }, [location.search]);
+
   const getHeight = () => {
     switch (stage) {
       case 0:
