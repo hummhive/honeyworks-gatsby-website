@@ -43,7 +43,6 @@ const Layout = ({ children }) => {
 
   return (
     <div ref={bodyRef} style={{ overflow: 'hidden' }}>
-      <p>test</p>
       <Header
         bodyRef={bodyRef}
         initialStage={
