@@ -10,13 +10,12 @@ import Join from './Join';
 import JoinSuccess from './JoinSuccess';
 import Signin from './Signin';
 import Account from './Account';
-import { HeaderContainer, AnimationWrapper } from './styled';
+import { HeaderContainer, AnimationWrapper, Layout2} from './styled';
 
 const Header = ({ bodyRef, initialStage = 0 }) => {
   const location = useLocation();
   const { state, actions } = React.useContext(HummContext);
-  const { hive, groups, secretKeyBase64, isLoggedIn } = state;
-
+  const { hive, groups, secretKeyBase64, isLoggedIn, staticCoreData } = state;
   const [didInit, setDidInit] = React.useState(false);
   const [stage, setStage] = React.useState(initialStage);
 
@@ -178,6 +177,14 @@ const Header = ({ bodyRef, initialStage = 0 }) => {
           />
         </AnimationWrapper>
       </HeaderContainer>
+    {staticCoreData.themeSettings.headerLayout === 1 && (
+    <Layout2>
+      <img src="https://pbs.twimg.com/profile_banners/1058768758486024192/1629116820/1500x500" />
+      <div className="logo-image"><img src="https://pbs.twimg.com/profile_images/1425289613070020616/ZP3yTOA3_400x400.png"/></div>
+      <div className="logo-heading">Honeyworks</div>
+      <div className="logo-subheading">Some decription...</div>
+    </Layout2>
+  )}
     </>
   );
 };

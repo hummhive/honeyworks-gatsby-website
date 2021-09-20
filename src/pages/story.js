@@ -19,7 +19,7 @@ const Story = ({ id }) => {
 
   return (
     <Layout>
-      <div className="readable-content">
+      <div className="readable-content container">
         <Loader isLoading={isLoading} size={48} color="rgba(0, 0, 0, 0.5)" />
         {state.stories[id] === 'NOT_FOUND' ? (
           <div className="alert alert-danger" role="alert">

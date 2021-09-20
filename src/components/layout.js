@@ -9,6 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { HummContext } from 'gatsby-plugin-hummhive-react-web-data';
 import Header from './Header';
+import Footer from './Footer';
 import { useLocation } from '@reach/router';
 import { navigate } from 'gatsby';
 import '../../static/bootstrap.min.css';
@@ -50,6 +51,7 @@ const Layout = ({ children }) => {
         }
       />
       <main>{children}</main>
+      <Footer />
     </div>
   );
 };

@@ -6,9 +6,7 @@ export const HeaderContainer = styled(animated.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 16px;
-  border-radius: 12px;
-  width: calc(100% - 32px);
+  border-bottom: 1px solid #EFEFEF;
   height: ${(props) => props.height}px;
   overflow: hidden;
 
@@ -20,9 +18,8 @@ export const HeaderContainer = styled(animated.div)`
   /* background: linear-gradient(to left, #606c88, #3f4c6b); */
   /* background: linear-gradient(135deg, #162c36, #203a43, #2c5364); */
   /* background: linear-gradient(to left, #5d72a4, #334572); */
-  background: linear-gradient(to left, #485563, #29323c);
-  color: white;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1), 0px 0px 30px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  color: #000;
 
   /* background: white;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1), 0px 0px 30px rgba(0, 0, 0, 0.1);
@@ -30,6 +27,7 @@ export const HeaderContainer = styled(animated.div)`
 `;
 
 export const AnimationWrapper = styled(animated.div)`
+  background-image: linear-gradient(to bottom right, #0057FF, #012293);
   position: absolute;
   top: ${(props) => props.baseComponentHeight}px;
   right: 0;
@@ -44,6 +42,31 @@ export const DescriptionContainer = styled.div`
   max-width: 600px;
   position: relative;
   z-index: 2;
+`;
+
+export const Layout2 = styled.div`
+img{
+  width: 100%;
+}
+.logo-heading{
+  text-align: center;
+  font-weight: 600;
+font-size: 20px;
+}
+.logo-subheading{
+    text-align: center;
+}
+.logo-image {
+	width: 120px;
+	text-align: center;
+	margin: auto;
+	position: relative;
+	margin-top: -61px;
+}
+.logo-image img{
+  border: 4px solid #fff;
+  border-radius: 40px;
+}
 `;
 
 export const TextInput = styled.input`

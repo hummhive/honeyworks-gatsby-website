@@ -18,6 +18,7 @@ export const DescriptionContainer = styled.div`
 
   h2 {
     font-size: 38px;
+    color: #fff;
     font-weight: 700;
 
     @media only screen and (min-width: 480px) and (max-width: 720px) {
@@ -151,7 +152,7 @@ export const GroupCost = styled.p`
 export const JoinGroupButton = styled.button`
   border: none;
   outline: none !important;
-  background: #4393e9;
+  background: #0057FF;
   color: white;
   border-radius: 4px;
   width: 100%;

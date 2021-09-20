@@ -10,6 +10,7 @@ import formatDateString from '../utils/formatDateString';
 
 const Home = () => {
   const { state, actions } = React.useContext(HummContext);
+
   let { storyIndex, isLoadingStoryIndex } = state;
 
   React.useEffect(() => {
@@ -19,9 +20,9 @@ const Home = () => {
   return (
     <Layout>
       <SEO title="Stories" />
-      <div className="readable-content">
+      <div className="readable-content container">
         {storyIndex?.length === 0 && <NoPlublicContent />}
-
+        <h1 className="home-heading"><span>Latest stories</span></h1>
         <Loader isLoading={!storyIndex} size={48} color="rgba(0, 0, 0, 0.5)" />
         {storyIndex?.map((story, index) => {
           const publishedAt = formatDateString(story.publishedAt);
@@ -32,14 +33,22 @@ const Home = () => {
                 <div className="index-title" key={`content_item_${index}`}>
                   <h1>{story.title}</h1>
                 </div>
-                <p className="summary pt-1">
-                  {story.summary?.length > 150
-                    ? story.summary.substr(0, 150 - 1) + '...'
-                    : story.summary}
-                </p>
               </Link>
+              <p className="summary pt-1">
+                {story.summary?.length > 150
+                  ? story.summary.substr(0, 150 - 1) + '...'
+                  : story.summary}
+              </p>
               <div className="meta d-flex pt-1">
-                <div className="date">{publishedAt}</div>
+                {state.staticCoreData.themeSettings.display.date && (
+                  <div className="date">{publishedAt}</div>
+                )}
+                {state.staticCoreData.themeSettings.display.timeread && (
+                <div className="tread">3 min read</div>
+                )}
+                {state.staticCoreData.themeSettings.display.visibility && (
+                <div className="visibility">public</div>
+                )}
               </div>
             </div>
           );

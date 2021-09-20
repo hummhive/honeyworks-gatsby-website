@@ -5,6 +5,9 @@
  */
 
 import '@fontsource/nunito';
+import "@fontsource/work-sans";
+import "@fontsource/work-sans/600.css";
+import "@fontsource/work-sans/700.css";
 import '@fontsource/nunito/700.css';
 import '@fontsource/nunito-sans';
 import '@fontsource/nunito-sans/800.css';
