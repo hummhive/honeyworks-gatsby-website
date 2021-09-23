@@ -13,7 +13,7 @@ import Header from '../Header';
 import Footer from '../Footer';
 import { useLocation } from '@reach/router';
 import { navigate } from 'gatsby';
-import GlobalStyle from './globalStyle.css';
+import GlobalStyle from './globalstyle.css.js';
 import '../../../static/bootstrap.min.css';
 
 const Layout = ({ children }) => {
