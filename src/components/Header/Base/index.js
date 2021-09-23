@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useWindowSize } from 'react-use';
-import { HummContext } from 'gatsby-plugin-hummhive-react-web-data';
 import Logo from '../../../icons/logo';
 import {
   BaseContainer,
@@ -16,8 +15,6 @@ const Base = React.forwardRef(({ isLoggedIn, activeStage, setStage }, ref) => {
   const windowSize = useWindowSize();
   const logoSize =
     windowSize.width < 480 ? 32 : windowSize.width < 720 ? 38 : 42;
-
-    const { state, actions } = React.useContext(HummContext);
 
   return (
     <div ref={ref} style={{ width: '100%' }}>
@@ -38,8 +35,7 @@ const Base = React.forwardRef(({ isLoggedIn, activeStage, setStage }, ref) => {
             </Button>
           ) : (
             <>
-              <Button
-                color={state.staticCoreData.themeSettings.colors.primary}
+              <Button className="primaryBg"
                 onClick={() =>
                   setStage(activeStage === 1 || activeStage === 2 ? 0 : 1)
                 }

@@ -27,7 +27,6 @@ export const HeaderContainer = styled(animated.div)`
 `;
 
 export const AnimationWrapper = styled(animated.div)`
-  background-image: linear-gradient(to bottom right, #0057FF, #012293);
   position: absolute;
   top: ${(props) => props.baseComponentHeight}px;
   right: 0;

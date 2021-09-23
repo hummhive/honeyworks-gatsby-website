@@ -8,18 +8,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { HummContext } from 'gatsby-plugin-hummhive-react-web-data';
-import Header from './Header';
-import Footer from './Footer';
+import { useStaticQuery, graphql } from "gatsby";
+import Header from '../Header';
+import Footer from '../Footer';
 import { useLocation } from '@reach/router';
 import { navigate } from 'gatsby';
-import '../../static/bootstrap.min.css';
-import '../../static/layout.css';
+import GlobalStyle from './globalStyle.css';
+import '../../../static/bootstrap.min.css';
 
 const Layout = ({ children }) => {
   const bodyRef = React.useRef();
   const { state, actions } = React.useContext(HummContext);
   const { isLoggedIn } = state;
   const location = useLocation();
+
+  const { coreStaticDataJson: themeConfig } = useStaticQuery(graphql`
+    query GetThemeSettings {
+        coreStaticDataJson {
+          themeSettings {
+            color
+          }
+        }
+      }
+  `);
 
   const login = async (key) => {
     try {
@@ -44,6 +55,7 @@ const Layout = ({ children }) => {
 
   return (
     <div ref={bodyRef} style={{ overflow: 'hidden' }}>
+      <GlobalStyle {...themeConfig} />
       <Header
         bodyRef={bodyRef}
         initialStage={

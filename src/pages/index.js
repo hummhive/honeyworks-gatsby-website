@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import SEO from '../components/seo';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import Loader from '../components/Loader';
 import NoPlublicContent from '../components/NoPlublicContent';
 import { HummContext } from 'gatsby-plugin-hummhive-react-web-data';
@@ -40,15 +40,9 @@ const Home = () => {
                   : story.summary}
               </p>
               <div className="meta d-flex pt-1">
-                {state.staticCoreData.themeSettings.display.date && (
                   <div className="date">{publishedAt}</div>
-                )}
-                {state.staticCoreData.themeSettings.display.timeread && (
                 <div className="tread">3 min read</div>
-                )}
-                {state.staticCoreData.themeSettings.display.visibility && (
                 <div className="visibility">public</div>
-                )}
               </div>
             </div>
           );

@@ -117,6 +117,7 @@ const Header = ({ bodyRef, initialStage = 0 }) => {
         </AnimationWrapper> */}
         <AnimationWrapper
           baseComponentHeight={baseSize.height}
+          className="primaryGradientBg"
           zIndex={stage === 1 ? 2 : 1}
           style={groupsSpring}
         >
@@ -177,14 +178,6 @@ const Header = ({ bodyRef, initialStage = 0 }) => {
           />
         </AnimationWrapper>
       </HeaderContainer>
-    {staticCoreData.themeSettings.headerLayout === 1 && (
-    <Layout2>
-      <img src="https://pbs.twimg.com/profile_banners/1058768758486024192/1629116820/1500x500" />
-      <div className="logo-image"><img src="https://pbs.twimg.com/profile_images/1425289613070020616/ZP3yTOA3_400x400.png"/></div>
-      <div className="logo-heading">Honeyworks</div>
-      <div className="logo-subheading">Some decription...</div>
-    </Layout2>
-  )}
     </>
   );
 };

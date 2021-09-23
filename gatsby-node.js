@@ -37,3 +37,16 @@ exports.onCreatePage = async ({ page, actions }) => {
     createPage(page)
   }
 }
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  const typeDefs = `
+    type CoreStaticDataJson implements Node {
+      themeSettings: ThemeSettings
+    }
+    type ThemeSettings {
+      color: String
+    }
+  `
+  createTypes(typeDefs)
+}
