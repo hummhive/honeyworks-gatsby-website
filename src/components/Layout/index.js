@@ -27,6 +27,8 @@ const Layout = ({ children }) => {
         coreStaticDataJson {
           themeSettings {
             color
+            logoImage
+            bannerImage
           }
         }
       }
@@ -58,6 +60,7 @@ const Layout = ({ children }) => {
       <GlobalStyle {...themeConfig} />
       <Header
         bodyRef={bodyRef}
+        config={themeConfig}
         initialStage={
           !isLoggedIn && location.pathname === '/' && !dismissedGroups ? 1 : 0
         }

@@ -12,7 +12,7 @@ import Signin from './Signin';
 import Account from './Account';
 import { HeaderContainer, AnimationWrapper, Layout2} from './styled';
 
-const Header = ({ bodyRef, initialStage = 0 }) => {
+const Header = ({ bodyRef, config, initialStage = 0 }) => {
   const location = useLocation();
   const { state, actions } = React.useContext(HummContext);
   const { hive, groups, secretKeyBase64, isLoggedIn, staticCoreData } = state;
@@ -108,8 +108,10 @@ const Header = ({ bodyRef, initialStage = 0 }) => {
         <Base
           ref={baseRef}
           isLoggedIn={isLoggedIn}
+          hive={hive}
           activeStage={stage}
           setStage={setStage}
+          config={config}
         />
         {/* <AnimationWrapper
           style={{ ...baseSpring, zIndex: stage === 0 ? 2 : 1 }}
@@ -178,12 +180,24 @@ const Header = ({ bodyRef, initialStage = 0 }) => {
           />
         </AnimationWrapper>
       </HeaderContainer>
+      {config.themeSettings.bannerImage && (
+        <Layout2>
+      <img src={`banner.${config.themeSettings.bannerImage.split('.').pop()}`} />
+      {config.themeSettings.logoImage && (
+        <>
+        <div className="logo-image"><img src={`logo.${config.themeSettings.logoImage.split('.').pop()}`} /></div>
+        <div className="logo-heading">{hive?.name}</div>
+        </>
+      )}
+      </Layout2>
+      )}
     </>
   );
 };
 
 Header.propTypes = {
   bodyRef: PropTypes.object,
+  config: PropTypes.object,
   initialStage: PropTypes.number,
 };
 

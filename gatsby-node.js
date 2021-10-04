@@ -46,6 +46,8 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
     type ThemeSettings {
       color: String
+      bannerImage: String
+      logoImage: String
     }
   `
   createTypes(typeDefs)

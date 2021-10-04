@@ -41,8 +41,7 @@ const Home = () => {
               </p>
               <div className="meta d-flex pt-1">
                   <div className="date">{publishedAt}</div>
-                <div className="tread">3 min read</div>
-                <div className="visibility">public</div>
+                <div className="visibility">{story.access.isPublic ? 'Public' : 'Members'}</div>
               </div>
             </div>
           );

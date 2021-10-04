@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useWindowSize } from 'react-use';
-import Logo from '../../../icons/logo';
+import { HeaderContainer, AnimationWrapper} from './styled';
+import { useStaticQuery, graphql } from "gatsby";
 import {
   BaseContainer,
   TitleContainer,
@@ -11,16 +11,17 @@ import {
 import { navigate } from 'gatsby';
 
 // eslint-disable-next-line react/display-name
-const Base = React.forwardRef(({ isLoggedIn, activeStage, setStage }, ref) => {
-  const windowSize = useWindowSize();
-  const logoSize =
-    windowSize.width < 480 ? 32 : windowSize.width < 720 ? 38 : 42;
+const Base = React.forwardRef(({ isLoggedIn, activeStage, setStage, hive, config }, ref) => {
 
   return (
     <div ref={ref} style={{ width: '100%' }}>
       <BaseContainer className="container">
         <TitleContainer onClick={() => navigate('/')}>
-          Honeyworks
+          {config.themeSettings.logoImage ? (
+          <img src={`logo.${config.themeSettings.logoImage.split('.').pop()}`} height={40} />
+          ) : (
+            hive?.name
+          )}
         </TitleContainer>
         <ButtonsContainer>
           <Button onClick={() => navigate('/')}>
@@ -52,6 +53,7 @@ const Base = React.forwardRef(({ isLoggedIn, activeStage, setStage }, ref) => {
 
 Base.propTypes = {
   hive: PropTypes.object,
+  config: PropTypes.object,
   isLoggedIn: PropTypes.bool,
   activeStage: PropTypes.number,
   setStage: PropTypes.func,
