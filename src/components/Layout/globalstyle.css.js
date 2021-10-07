@@ -184,7 +184,7 @@ a {
 	width: 100%;
 	height: 4px;
 	border-radius: 2px;
-	background-color: ${(props) => (props.themeSettings ? props.themeSettings.color : "#00000")};
+	background-color: ${(props) => (props.themeSettings && props.themeSettings.color ? props.themeSettings.color : "#000000")};
 	position: absolute;
 	left: 0;
 	bottom: -4px;
