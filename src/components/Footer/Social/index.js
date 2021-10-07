@@ -6,19 +6,20 @@ import { FaInstagram } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 
 const Social = ({config}) => {
+  const themeConfig = config?.themeSettings;
   return (
     <div className="d-flex social-icons">
-{config.themeSettings.facebook && (
-<a href={config.themeSettings.facebook}><FaFacebook /></a>
+{themeConfig?.facebook && (
+<a href={themeConfig.facebook}><FaFacebook /></a>
 )}
-{config.themeSettings.twitter && (
-<a href={config.themeSettings.twitter}><FaTwitter /></a>
+{themeConfig?.twitter && (
+<a href={themeConfig.twitter}><FaTwitter /></a>
 )}
-{config.themeSettings.instagram && (
-  <a href={config.themeSettings.instagram}><FaInstagram /></a>
+{themeConfig?.instagram && (
+  <a href={themeConfig.instagram}><FaInstagram /></a>
   )}
-  {config.themeSettings.github && (
-  <a href={config.themeSettings.github}><FaGithub /></a>
+  {themeConfig?.github && (
+  <a href={themeConfig.github}><FaGithub /></a>
   )}
 </div>
   );

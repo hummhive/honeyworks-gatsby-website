@@ -10,13 +10,12 @@ import { navigate } from 'gatsby';
 
 // eslint-disable-next-line react/display-name
 const Base = React.forwardRef(({ isLoggedIn, activeStage, setStage, hive, config }, ref) => {
-
   return (
     <div ref={ref} style={{ width: '100%' }}>
       <BaseContainer className="container">
         <TitleContainer onClick={() => navigate('/')}>
-          {config.themeSettings.logoImage ? (
-          <img src={`logo.${config.themeSettings.logoImage.split('.').pop()}`} height={40} />
+          {config?.logoImage ? (
+          <img src={`logo.${config.logoImage.split('.').pop()}`} height={40} />
           ) : (
             hive?.name
           )}

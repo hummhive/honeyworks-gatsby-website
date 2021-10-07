@@ -26,6 +26,8 @@ const Header = ({ bodyRef, config, initialStage = 0 }) => {
   const [signinRef, signinSize] = useMeasure();
   const [accountRef, accountSize] = useMeasure();
 
+  const themeConfig = config?.themeSettings;
+
   React.useEffect(() => {
     if (!groups) actions.getGroups();
   }, []);
@@ -111,7 +113,7 @@ const Header = ({ bodyRef, config, initialStage = 0 }) => {
           hive={hive}
           activeStage={stage}
           setStage={setStage}
-          config={config}
+          config={themeConfig}
         />
         {/* <AnimationWrapper
           style={{ ...baseSpring, zIndex: stage === 0 ? 2 : 1 }}
@@ -180,12 +182,12 @@ const Header = ({ bodyRef, config, initialStage = 0 }) => {
           />
         </AnimationWrapper>
       </HeaderContainer>
-      {config.themeSettings.bannerImage && (
+      {themeConfig?.bannerImage && (
         <Layout2>
-      <img src={`banner.${config.themeSettings.bannerImage.split('.').pop()}`} />
-      {config.themeSettings.logoImage && (
+      <img src={`banner.${themeConfig.bannerImage.split('.').pop()}`} />
+      {themeConfig.logoImage && (
         <>
-        <div className="logo-image"><img src={`logo.${config.themeSettings.logoImage.split('.').pop()}`} /></div>
+        <div className="logo-image"><img src={`logo.${themeConfig.logoImage.split('.').pop()}`} /></div>
         <div className="logo-heading">{hive?.name}</div>
         </>
       )}
