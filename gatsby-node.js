@@ -48,6 +48,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       color: String
       bannerImage: String
       logoImage: String
+      facebook: String
+      github: String
+      instagram: String
+      twitter: String
     }
   `
   createTypes(typeDefs)

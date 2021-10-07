@@ -29,6 +29,10 @@ const Layout = ({ children }) => {
             color
             logoImage
             bannerImage
+            twitter
+            facebook
+            instagram
+            github
           }
         }
       }
@@ -66,7 +70,7 @@ const Layout = ({ children }) => {
         }
       />
       <main>{children}</main>
-      <Footer />
+      <Footer config={themeConfig} />
     </div>
   );
 };
