@@ -7,7 +7,6 @@ export const Container = styled.div`
   p {
     margin: 0;
     font-size: 24px;
-    font-weight: 600;
     text-align: center;
     color: #000;
 

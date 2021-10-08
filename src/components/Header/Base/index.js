@@ -9,7 +9,7 @@ import {
 import { navigate } from 'gatsby';
 
 // eslint-disable-next-line react/display-name
-const Base = React.forwardRef(({ isLoggedIn, activeStage, setStage, hive, config }, ref) => {
+const Base = React.forwardRef(({ isLoggedIn, activeStage, setStage, hive, config, location}, ref) => {
   return (
     <div ref={ref} style={{ width: '100%' }}>
       <BaseContainer className="container">
@@ -21,15 +21,15 @@ const Base = React.forwardRef(({ isLoggedIn, activeStage, setStage, hive, config
           )}
         </TitleContainer>
         <ButtonsContainer>
-          <Button onClick={() => navigate('/')}>
-            Home
+          <Button onClick={() => navigate('/')} className={location.pathname === '/' && 'primaryColor'}>
+            <span>Home</span>
           </Button>
-          <Button onClick={() => setStage(activeStage === 3 ? 0 : 3)}>
-            {activeStage === 3 ? 'Close' : 'Sign In'}
+          <Button onClick={() => setStage(activeStage === 3 ? 0 : 3)} >
+          <span>  {activeStage === 3 ? 'Close' : 'Sign In'}</span>
           </Button>
           {isLoggedIn ? (
             <Button onClick={() => setStage(activeStage === 4 ? 0 : 4)}>
-              {activeStage === 4 ? 'Close' : 'Account'}
+              <span>{activeStage === 4 ? 'Close' : 'Account'}</span>
             </Button>
           ) : (
             <>
@@ -38,7 +38,7 @@ const Base = React.forwardRef(({ isLoggedIn, activeStage, setStage, hive, config
                   setStage(activeStage === 1 || activeStage === 2 ? 0 : 1)
                 }
               >
-                {activeStage === 1 || activeStage === 2 ? 'Close' : 'Join'}
+                <span>{activeStage === 1 || activeStage === 2 ? 'Close' : 'Join'}</span>
               </Button>
             </>
           )}
@@ -51,6 +51,7 @@ const Base = React.forwardRef(({ isLoggedIn, activeStage, setStage, hive, config
 Base.propTypes = {
   hive: PropTypes.object,
   config: PropTypes.object,
+  location: PropTypes.object,
   isLoggedIn: PropTypes.bool,
   activeStage: PropTypes.number,
   setStage: PropTypes.func,

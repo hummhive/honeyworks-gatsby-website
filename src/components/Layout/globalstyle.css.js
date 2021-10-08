@@ -33,10 +33,12 @@ h6 {
   color: #FFF;
 }
 
-.primaryBg:hover{
-  border: 1px solid ${(props) => (props.themeSettings && props.themeSettings.color ? props.themeSettings.color : "#000000")};
-  background: #fff;
-  color: #000;
+.primaryColor{
+  color: ${(props) => (props.themeSettings && props.themeSettings.color ? props.themeSettings.color : "#000000")};
+}
+
+button:hover{
+  color: ${(props) => (props.themeSettings && props.themeSettings.color ? props.themeSettings.color : "#000000")};
 }
 
 .primaryGradientBg{
@@ -62,7 +64,12 @@ h6 {
 }
 
 a {
-  color: #646eff;
+  color: ${(props) => (props.themeSettings && props.themeSettings.color ? props.themeSettings.color : "#000000")};
+}
+
+a:hover{
+  color: #000;
+  text-decoration: underline;
 }
 
 .header a {

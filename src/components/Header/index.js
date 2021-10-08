@@ -111,6 +111,7 @@ const Header = ({ bodyRef, config, initialStage = 0 }) => {
           ref={baseRef}
           isLoggedIn={isLoggedIn}
           hive={hive}
+          location={location}
           activeStage={stage}
           setStage={setStage}
           config={themeConfig}

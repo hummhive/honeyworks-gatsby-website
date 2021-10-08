@@ -21,7 +21,7 @@ const Signin = React.forwardRef(
     };
 
     return (
-      <SigninContainer ref={ref} baseComponentHeight={baseComponentHeight}>
+      <SigninContainer ref={ref} baseComponentHeight={baseComponentHeight} className="primaryGradientBg">
         <Inner>
           {error && <Error>Error: {error}</Error>}
           <form onSubmit={handleSignin}>

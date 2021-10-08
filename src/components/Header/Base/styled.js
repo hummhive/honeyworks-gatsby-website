@@ -26,9 +26,9 @@ export const ButtonsContainer = styled.div`
 export const Button = styled.button`
   outline: none !important;
   border: solid 2px white;
-  background: ${(props) => (props.color ? props.color : 'transparent')};
-  color: ${(props) => (props.color ? '#FFF' : '#161F38')};
+  background: transparent;
   padding: 8px 15px;
+  color: ${(props) => (props.location === '/' ? '#000' : "transparent")}
   margin: 0 4px;
   transition: all 150ms ease-in-out;
   font-weight: 600;
@@ -38,7 +38,6 @@ export const Button = styled.button`
 
   :hover {
     background: white;
-    color: black;
   }
 
   @media only screen and (min-width: 480px) and (max-width: 720px) {
