@@ -15,7 +15,7 @@ const Base = React.forwardRef(({ isLoggedIn, activeStage, setStage, hive, config
       <BaseContainer className="container">
         <TitleContainer onClick={() => navigate('/')}>
           {config?.logoImage ? (
-          <img src={`logo.${config.logoImage.split('.').pop()}`} height={40} />
+          <img src={`/logo.${config.logoImage.split('.').pop()}`} height={40} />
           ) : (
             hive?.name
           )}

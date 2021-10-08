@@ -183,12 +183,12 @@ const Header = ({ bodyRef, config, initialStage = 0 }) => {
           />
         </AnimationWrapper>
       </HeaderContainer>
-      {themeConfig?.bannerImage && (
+      {themeConfig?.bannerImage && location.pathname === '/' && (
         <Layout2>
-      <img src={`banner.${themeConfig.bannerImage.split('.').pop()}`} />
+      <img src={`/banner.${themeConfig.bannerImage.split('.').pop()}`} />
       {themeConfig.logoImage && (
         <>
-        <div className="logo-image"><img src={`logo.${themeConfig.logoImage.split('.').pop()}`} /></div>
+        <div className="logo-image"><img src={`/logo.${themeConfig.logoImage.split('.').pop()}`} /></div>
         <div className="logo-heading">{hive?.name}</div>
         </>
       )}
