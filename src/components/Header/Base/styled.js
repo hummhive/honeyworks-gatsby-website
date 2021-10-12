@@ -36,17 +36,13 @@ export const Button = styled.button`
   font-size: 14px;
   font-family: "Work Sans";
 
-  :hover {
-    background: white;
-  }
-
   @media only screen and (min-width: 480px) and (max-width: 720px) {
     font-size: 12px;
     width: 112px;
   }
 
   @media only screen and (max-width: 480px) {
-    font-size: 10px;
+    font-size: 14px;
     width: 100px;
     padding-top: 9px;
   }

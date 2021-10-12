@@ -12,8 +12,8 @@ export const DescriptionContainer = styled.div`
   text-align: center;
   max-width: 600px;
   position: relative;
+  color: #fff;
   z-index: 2;
-  font-family: 'Nunito';
   padding: 24px 24px 0 24px;
 
   h2 {
@@ -158,7 +158,4 @@ export const JoinGroupButton = styled.button`
   width: 100%;
   transition: background 150ms ease-in-out;
 
-  :hover {
-    background: #2d77c6;
-  }
 `;

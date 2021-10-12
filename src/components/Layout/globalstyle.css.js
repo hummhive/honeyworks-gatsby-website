@@ -37,8 +37,12 @@ h6 {
   color: ${(props) => (props.themeSettings && props.themeSettings.color ? props.themeSettings.color : "#000000")};
 }
 
-button:hover{
+button{
   color: ${(props) => (props.themeSettings && props.themeSettings.color ? props.themeSettings.color : "#000000")};
+}
+
+button:hover{
+  opacity: 0.7;
 }
 
 .primaryGradientBg{

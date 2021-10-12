@@ -106,7 +106,7 @@ const Header = ({ bodyRef, config, initialStage = 0 }) => {
 
   return (
     <>
-      <HeaderContainer style={containerSpring} height={baseSize.height}>
+      <HeaderContainer style={containerSpring} height={baseSize.height} stage={stage}>
         <Base
           ref={baseRef}
           isLoggedIn={isLoggedIn}
@@ -183,7 +183,7 @@ const Header = ({ bodyRef, config, initialStage = 0 }) => {
           />
         </AnimationWrapper>
       </HeaderContainer>
-      {themeConfig?.bannerImage && location.pathname === '/' && (
+      {themeConfig?.bannerImage && location.pathname === '/' && stage === 0 && (
         <Layout2>
       <img src={`/banner.${themeConfig.bannerImage.split('.').pop()}`} />
       {themeConfig.logoImage && (

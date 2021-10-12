@@ -2,13 +2,15 @@ import styled from 'styled-components';
 import { animated } from 'react-spring';
 
 export const HeaderContainer = styled(animated.div)`
-  position: relative;
+  position: ${(props) => props.stage === 3 ? 'absolute' : 'relative'};
+  width: ${(props) => props.stage === 3 ? '100%' : 'auto'};
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-bottom: 1px solid #EFEFEF;
+  border-bottom: ${(props) => props.stage === 3 ? '0px' : '1px solid #EFEFEF;'};
   height: ${(props) => props.height}px;
   overflow: hidden;
+  z-index: 9999;
 
   /* background: linear-gradient(
     135deg,
@@ -39,6 +41,7 @@ export const AnimationWrapper = styled(animated.div)`
 export const DescriptionContainer = styled.div`
   text-align: center;
   max-width: 600px;
+  color: #fff;
   position: relative;
   z-index: 2;
 `;

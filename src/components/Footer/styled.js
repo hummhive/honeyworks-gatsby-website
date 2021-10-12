@@ -16,4 +16,18 @@ export const FooterWrapper = styled.div`
     padding-left: 10px;
   }
 
+  @media only screen and (max-width: 480px) {
+    display: block !important;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 90%;
+    text-align: center;
+
+    .social-icons a {
+    text-align: center;
+    margin: 10px auto;
+  }
+
+  }
+
 `;
