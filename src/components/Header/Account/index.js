@@ -21,7 +21,7 @@ const Account = React.forwardRef(({ baseComponentHeight, setStage }, ref) => {
   };
 
   return (
-    <AccountContainer ref={ref} baseComponentHeight={baseComponentHeight}>
+    <AccountContainer ref={ref} baseComponentHeight={baseComponentHeight} className="primaryGradientBg">
       <Inner>
         {error && <Error>Error: {error}</Error>}
 

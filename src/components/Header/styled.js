@@ -2,12 +2,12 @@ import styled from 'styled-components';
 import { animated } from 'react-spring';
 
 export const HeaderContainer = styled(animated.div)`
-  position: ${(props) => props.stage === 3 ? 'absolute' : 'relative'};
-  width: ${(props) => props.stage === 3 ? '100%' : 'auto'};
+  position: ${(props) => props.stage !== 0 && props.stage !== 1 ? 'absolute' : 'relative'};
+  width: ${(props) => props.stage !== 0 && props.stage !== 1 ? '100%' : 'auto'};
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-bottom: ${(props) => props.stage === 3 ? '0px' : '1px solid #EFEFEF;'};
+  border-bottom: ${(props) => props.stage !== 0 && props.stage !== 1 ? '0px' : '1px solid #EFEFEF;'};
   height: ${(props) => props.height}px;
   overflow: hidden;
   z-index: 9999;
@@ -53,7 +53,7 @@ img{
 .logo-heading{
   text-align: center;
   font-weight: 600;
-font-size: 20px;
+font-size: 24px;
 }
 .logo-subheading{
     text-align: center;

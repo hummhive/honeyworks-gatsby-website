@@ -8,7 +8,7 @@ import { SubmitButton } from '../styled';
 const JoinSuccess = React.forwardRef(
   ({ hive, secretKeyBase64, baseComponentHeight, setStage }, ref) => {
     return (
-      <JoinSuccessContainer ref={ref} baseComponentHeight={baseComponentHeight}>
+      <JoinSuccessContainer ref={ref} baseComponentHeight={baseComponentHeight} className="primaryGradientBg">
         <Inner>
           <h2>You have succesfully joined {hive?.name}!</h2>
           <p>

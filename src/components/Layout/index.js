@@ -65,9 +65,6 @@ const Layout = ({ children }) => {
       <Header
         bodyRef={bodyRef}
         config={themeConfig}
-        initialStage={
-          !isLoggedIn && location.pathname === '/' && !dismissedGroups ? 1 : 0
-        }
       />
       <main>{children}</main>
       <Footer config={themeConfig} />

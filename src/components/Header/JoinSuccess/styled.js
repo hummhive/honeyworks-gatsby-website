@@ -5,7 +5,7 @@ export const JoinSuccessContainer = styled.div`
   top: 0;
   right: 0;
   left: 0;
-  height: calc(100vh - ${(props) => props.baseComponentHeight}px - 32px);
+  height: 100vh;
   display: flex;
   flex-direction: column;
   z-index: ${(props) => (props.isShowing ? 3 : 0)};

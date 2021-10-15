@@ -47,6 +47,7 @@ button:hover{
 
 .primaryGradientBg{
   background-image: linear-gradient(to bottom right,${(props) => (props.themeSettings && props.themeSettings.color ? props.themeSettings.color : "#000000")},#000);
+  color: #FFF;
 }
 
 .header {
@@ -210,7 +211,7 @@ a:hover{
 }
 
 .date {
-	text-transform: lowercase;
+	text-transform: capitalize;
 }
 
 .post p {
@@ -219,7 +220,6 @@ a:hover{
 }
 
 .post-title h1 {
-  font-family: 'Libre Baskerville';
   font-weight: 700;
   font-size: 40px;
   margin-bottom: 0;
