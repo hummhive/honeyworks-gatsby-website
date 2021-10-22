@@ -1,5 +1,5 @@
 import React from 'react';
-import { HummContext } from 'gatsby-plugin-hummhive-react-web-data';
+import { HummContext } from '@hummhive/gatsby-plugin-hummhive-react-web-data';
 
 const Copyright = () => {
   const { state } = React.useContext(HummContext);

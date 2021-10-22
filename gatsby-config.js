@@ -5,7 +5,7 @@ module.exports = {
     DEV_SSR: false,
   },
   plugins: [
-    'gatsby-plugin-hummhive-react-web-data',
+    '@hummhive/gatsby-plugin-hummhive-react-web-data',
     `gatsby-plugin-image`,
     `gatsby-plugin-styled-components`,
     {

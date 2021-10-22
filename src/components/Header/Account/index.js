@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { HummContext } from 'gatsby-plugin-hummhive-react-web-data';
+import { HummContext } from '@hummhive/gatsby-plugin-hummhive-react-web-data';
 import KeyContainer from '../KeyContainer';
 import { AccountContainer, Inner, Row, Button } from './styled';
 import { Error } from '../styled';
