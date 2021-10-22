@@ -8,7 +8,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
-import { HummContext } from "gatsby-plugin-hummhive-react-web-data";
+import { HummContext } from "@hummhive/gatsby-plugin-hummhive-react-web-data";
 
 function SEO({ description, lang, meta, title }) {
   const { state } = React.useContext(HummContext);

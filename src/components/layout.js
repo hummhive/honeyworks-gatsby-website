@@ -7,7 +7,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { HummContext } from 'gatsby-plugin-hummhive-react-web-data';
+import { HummContext } from '@hummhive/gatsby-plugin-hummhive-react-web-data';
 import Header from './Header';
 import { useLocation } from '@reach/router';
 import { navigate } from 'gatsby';

@@ -5,7 +5,7 @@ import SEO from '../components/seo';
 import Layout from '../components/layout';
 import Loader from '../components/Loader';
 import NoPlublicContent from '../components/NoPlublicContent';
-import { HummContext } from 'gatsby-plugin-hummhive-react-web-data';
+import { HummContext } from '@hummhive/gatsby-plugin-hummhive-react-web-data';
 import formatDateString from '../utils/formatDateString';
 
 const Home = () => {
