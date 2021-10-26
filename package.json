@@ -1,6 +1,6 @@
 {
   "name": "@honeyworks/reader",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "private": false,
   "module": "dist/index.js",
