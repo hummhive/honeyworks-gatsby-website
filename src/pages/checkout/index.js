@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Layout from '../../components/layout';
+import Layout from '../../components/Layout';
 import SEO from '../../components/seo';
 // import { getMemberKeys } from "../../services/auth"
 // import decodeMemberKeys from "../../services/decodeMemberKeys"

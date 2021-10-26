@@ -6,7 +6,9 @@ module.exports = {
   },
   plugins: [
     '@hummhive/gatsby-plugin-hummhive-react-web-data',
+    `gatsby-plugin-image`,
     `gatsby-plugin-styled-components`,
+
     {
       resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
       options: {
@@ -22,32 +24,20 @@ module.exports = {
         path: path.resolve('config/coreStaticData'),
       },
     },
+    {
+  resolve: `gatsby-source-filesystem`,
+  options: {
+    name: `images`,
+    path: path.join(__dirname, `static`),
+  },
+},
     `gatsby-transformer-json`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-create-client-paths`,
       options: { prefixes: [`/me/*`] },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/logo.svg`,
-      },
-    },
   ],
 };

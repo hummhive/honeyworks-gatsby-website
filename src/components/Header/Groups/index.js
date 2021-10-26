@@ -74,7 +74,7 @@ const Groups = React.forwardRef(({ hive, groups, setStage }, ref) => {
               <GroupDescription>{hive?.joinText}</GroupDescription>
             </UpperGroupContainer>
             <LowerGroupContainer>
-              <JoinGroupButton onClick={() => setStage(2)}>
+              <JoinGroupButton onClick={() => setStage(2)} className="primaryBg">
                 Join
               </JoinGroupButton>
             </LowerGroupContainer>

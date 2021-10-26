@@ -26,9 +26,9 @@ export const ButtonsContainer = styled.div`
 export const Button = styled.button`
   outline: none !important;
   border: solid 2px white;
-  background: transparent;
+  background: ${(props) => (props.color ? props.color : 'transparent')};
+  color: ${(props) => (props.color ? '#FFF' : '#161F38')};
   padding: 8px 15px;
-  color: ${(props) => (props.location === '/' ? '#000' : "transparent")}
   margin: 0 4px;
   transition: all 150ms ease-in-out;
   font-weight: 600;
@@ -36,13 +36,18 @@ export const Button = styled.button`
   font-size: 14px;
   font-family: "Work Sans";
 
+  :hover {
+    background: white;
+    color: black;
+  }
+
   @media only screen and (min-width: 480px) and (max-width: 720px) {
     font-size: 12px;
     width: 112px;
   }
 
   @media only screen and (max-width: 480px) {
-    font-size: 14px;
+    font-size: 10px;
     width: 100px;
     padding-top: 9px;
   }

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useWindowSize } from 'react-use';
-import Logo from '../../../icons/logo';
+import { GatsbyImage } from "gatsby-plugin-image";
 import {
   BaseContainer,
   TitleContainer,
@@ -11,33 +10,40 @@ import {
 import { navigate } from 'gatsby';
 
 // eslint-disable-next-line react/display-name
-const Base = React.forwardRef(({ isLoggedIn, activeStage, setStage }, ref) => {
-  const windowSize = useWindowSize();
-  const logoSize =
-    windowSize.width < 480 ? 32 : windowSize.width < 720 ? 38 : 42;
-
+const Base = React.forwardRef(({ logo, isLoggedIn, activeStage, setStage, hive, config}, ref) => {
+  const handleHome = () => {
+    setStage(0);
+    navigate('/');
+  }
   return (
     <div ref={ref} style={{ width: '100%' }}>
-      <BaseContainer>
-        <TitleContainer onClick={() => navigate('/')}>
-          <Logo size={logoSize} style={{ flexShrink: 0 }} />
+      <BaseContainer className="container">
+        <TitleContainer onClick={() => handleHome()}>
+          {config?.logoImage ? (
+          <GatsbyImage image={logo.childImageSharp.gatsbyImageData} />
+          ) : (
+            hive?.name
+          )}
         </TitleContainer>
         <ButtonsContainer>
+          <Button onClick={() => handleHome()}>
+            <span>Home</span>
+          </Button>
           {isLoggedIn ? (
-            <Button onClick={() => setStage(activeStage === 4 ? 0 : 4)}>
-              {activeStage === 4 ? 'Close' : 'Account'}
+            <Button className="primaryBg" onClick={() => setStage(activeStage === 4 ? 0 : 4)}>
+              <span>{activeStage === 4 ? 'Close' : 'Account'}</span>
             </Button>
           ) : (
             <>
-              <Button
+            <Button onClick={() => setStage(activeStage === 3 ? 0 : 3)} >
+            <span>  {activeStage === 3 ? 'Close' : 'Sign In'}</span>
+            </Button>
+              <Button className="primaryBg"
                 onClick={() =>
                   setStage(activeStage === 1 || activeStage === 2 ? 0 : 1)
                 }
               >
-                {activeStage === 1 || activeStage === 2 ? 'Close' : 'Join'}
-              </Button>
-              <Button onClick={() => setStage(activeStage === 3 ? 0 : 3)}>
-                {activeStage === 3 ? 'Close' : 'Sign In'}
+                <span>{activeStage === 1 || activeStage === 2 ? 'Close' : 'Join'}</span>
               </Button>
             </>
           )}
@@ -49,6 +55,9 @@ const Base = React.forwardRef(({ isLoggedIn, activeStage, setStage }, ref) => {
 
 Base.propTypes = {
   hive: PropTypes.object,
+  config: PropTypes.object,
+  logo: PropTypes.object,
+  location: PropTypes.object,
   isLoggedIn: PropTypes.bool,
   activeStage: PropTypes.number,
   setStage: PropTypes.func,

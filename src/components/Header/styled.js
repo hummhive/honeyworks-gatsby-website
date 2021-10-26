@@ -2,15 +2,15 @@ import styled from 'styled-components';
 import { animated } from 'react-spring';
 
 export const HeaderContainer = styled(animated.div)`
-  position: relative;
+  position: ${(props) => props.stage !== 0 && props.stage !== 1 ? 'absolute' : 'relative'};
+  width: ${(props) => props.stage !== 0 && props.stage !== 1 ? '100%' : 'auto'};
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 16px;
-  border-radius: 12px;
-  width: calc(100% - 32px);
+  border-bottom: ${(props) => props.stage !== 0 && props.stage !== 1 ? '0px' : '1px solid #EFEFEF;'};
   height: ${(props) => props.height}px;
   overflow: hidden;
+  z-index: 9999;
 
   /* background: linear-gradient(
     135deg,
@@ -20,9 +20,8 @@ export const HeaderContainer = styled(animated.div)`
   /* background: linear-gradient(to left, #606c88, #3f4c6b); */
   /* background: linear-gradient(135deg, #162c36, #203a43, #2c5364); */
   /* background: linear-gradient(to left, #5d72a4, #334572); */
-  background: linear-gradient(to left, #485563, #29323c);
-  color: white;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1), 0px 0px 30px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  color: #000;
 
   /* background: white;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1), 0px 0px 30px rgba(0, 0, 0, 0.1);
@@ -42,8 +41,38 @@ export const AnimationWrapper = styled(animated.div)`
 export const DescriptionContainer = styled.div`
   text-align: center;
   max-width: 600px;
+  color: #fff;
   position: relative;
   z-index: 2;
+`;
+
+export const Layout2 = styled.div`
+img{
+  width: 100%;
+}
+.logo-heading{
+  text-align: center;
+  font-weight: 600;
+font-size: 24px;
+}
+.logo-subheading{
+    text-align: center;
+}
+.logo-image {
+	width: 120px;
+	text-align: center;
+	margin: auto;
+	position: relative;
+	margin-top: -61px;
+}
+.logo-image img{
+  border: 4px solid #fff;
+  border-radius: 40px;
+}
+
+.hero-image{
+  max-height: 300px;
+}
 `;
 
 export const TextInput = styled.input`

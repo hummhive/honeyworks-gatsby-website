@@ -66,7 +66,7 @@ const Join = React.forwardRef(
     };
 
     return (
-      <JoinContainer ref={ref} baseComponentHeight={baseComponentHeight}>
+      <JoinContainer ref={ref} baseComponentHeight={baseComponentHeight} className="primaryGradientBg">
         <Inner>
           {error && <Error>Error: {error}</Error>}
           <form onSubmit={handleJoin}>
