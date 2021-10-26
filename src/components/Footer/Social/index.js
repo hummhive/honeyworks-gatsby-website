@@ -10,16 +10,16 @@ const Social = ({config}) => {
   return (
     <div className="d-flex social-icons">
 {themeConfig?.facebook && (
-<a href={themeConfig.facebook}><FaFacebook /></a>
+<a href={`https://facebook.com/ ${themeConfig.facebook}`}><FaFacebook /></a>
 )}
 {themeConfig?.twitter && (
-<a href={themeConfig.twitter}><FaTwitter /></a>
+<a href={`https://twitter.com/ ${themeConfig.twitter}`}><FaTwitter /></a>
 )}
 {themeConfig?.instagram && (
-  <a href={themeConfig.instagram}><FaInstagram /></a>
+<a href={`https://instagram.com/ ${themeConfig.instagram}`}><FaInstagram /></a>
   )}
   {themeConfig?.github && (
-  <a href={themeConfig.github}><FaGithub /></a>
+  <a href={`https://github.com/ ${themeConfig.github}`}><FaGithub /></a>
   )}
 </div>
   );
