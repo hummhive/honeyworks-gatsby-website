@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { GatsbyImage } from "gatsby-plugin-image";
 import {
   BaseContainer,
   TitleContainer,
@@ -9,7 +10,7 @@ import {
 import { navigate } from 'gatsby';
 
 // eslint-disable-next-line react/display-name
-const Base = React.forwardRef(({ isLoggedIn, activeStage, setStage, hive, config}, ref) => {
+const Base = React.forwardRef(({ logo, isLoggedIn, activeStage, setStage, hive, config}, ref) => {
   const handleHome = () => {
     setStage(0);
     navigate('/');
@@ -19,7 +20,7 @@ const Base = React.forwardRef(({ isLoggedIn, activeStage, setStage, hive, config
       <BaseContainer className="container">
         <TitleContainer onClick={() => handleHome()}>
           {config?.logoImage ? (
-          <img src={`/logo.${config.logoImage.split('.').pop()}`} height={40} />
+          <GatsbyImage image={logo.childImageSharp.gatsbyImageData} />
           ) : (
             hive?.name
           )}
@@ -55,6 +56,7 @@ const Base = React.forwardRef(({ isLoggedIn, activeStage, setStage, hive, config
 Base.propTypes = {
   hive: PropTypes.object,
   config: PropTypes.object,
+  logo: PropTypes.object,
   location: PropTypes.object,
   isLoggedIn: PropTypes.bool,
   activeStage: PropTypes.number,

@@ -37,7 +37,7 @@ h6 {
   color: ${(props) => (props.themeSettings && props.themeSettings.color ? props.themeSettings.color : "#000000")};
 }
 
-button{
+.primaryBg button{
   color: ${(props) => (props.themeSettings && props.themeSettings.color ? props.themeSettings.color : "#000000")};
 }
 

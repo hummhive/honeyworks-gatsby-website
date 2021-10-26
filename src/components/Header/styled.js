@@ -69,6 +69,10 @@ font-size: 24px;
   border: 4px solid #fff;
   border-radius: 40px;
 }
+
+.hero-image{
+  max-height: 300px;
+}
 `;
 
 export const TextInput = styled.input`
