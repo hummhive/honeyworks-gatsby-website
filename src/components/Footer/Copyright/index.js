@@ -6,7 +6,7 @@ const Copyright = () => {
   const { hive  } = state;
   return (
     <div className="copyright">
-    © 2021 {hive?.name} - All right Reserved. Published with <a href="https://humm.earth">HummHive</a>
+    © 2021 {hive?.name} - All Rights Reserved.
 </div>
   );
 };
