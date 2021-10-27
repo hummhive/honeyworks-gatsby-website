@@ -71,7 +71,8 @@ font-size: 24px;
 }
 
 .hero-image{
-  max-height: 300px;
+  height: 25vw;
+  overflow: hidden;
 }
 `;
 

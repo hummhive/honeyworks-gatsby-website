@@ -207,8 +207,10 @@ const Header = ({ bodyRef, config, initialStage = 0 }) => {
     </HeaderContainer>
     {themeConfig?.bannerImage && location.pathname === '/' && stage === 0 && (
       <Layout2>
+    <div className="hero-image">
     <GatsbyImage
       image={data.banner.childImageSharp.gatsbyImageData} />
+    </div>
     {themeConfig.logoImage && (
       <>
       <div className="logo-image"><GatsbyImage image={data.logoBanner.childImageSharp.gatsbyImageData} /></div>
