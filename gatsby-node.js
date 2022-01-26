@@ -7,41 +7,41 @@
 exports.onCreateWebpackConfig = ({ actions, loaders, getConfig }) => {
   actions.setWebpackConfig({
     resolve: {
-      fallback: { "path": require.resolve("path-browserify") }
+      fallback: { path: require.resolve('path-browserify') },
     },
-  })
-}
+  });
+};
 
-exports.onCreateBabelConfig = p => {
-  if (process.env.NODE_ENV !== "development") {
+exports.onCreateBabelConfig = (p) => {
+  if (process.env.NODE_ENV !== 'development') {
     p.actions.setBabelPlugin({
-      name: "@babel/plugin-transform-regenerator",
+      name: '@babel/plugin-transform-regenerator',
       options: {},
-    })
+    });
     p.actions.setBabelPlugin({
-      name: "@babel/plugin-transform-runtime",
+      name: '@babel/plugin-transform-runtime',
       options: {},
-    })
+    });
   }
-}
+};
 
 exports.onCreatePage = async ({ page, actions }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
   // page.matchPath is a special key that's used for matching pages
   // only on the client.
   if (page.path.match(/^\/story/)) {
-    page.matchPath = "/story/:id"
+    page.matchPath = '/story/:id';
 
     // Update the page.
-    createPage(page)
+    createPage(page);
   }
-}
+};
 
 exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions
+  const { createTypes } = actions;
   const typeDefs = `
-    type CoreStaticDataJson implements Node {
+    type HiveConfigJson implements Node {
       themeSettings: ThemeSettings
     }
     type ThemeSettings {
@@ -53,6 +53,6 @@ exports.createSchemaCustomization = ({ actions }) => {
       instagram: String
       twitter: String
     }
-  `
-  createTypes(typeDefs)
-}
+  `;
+  createTypes(typeDefs);
+};

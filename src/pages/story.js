@@ -11,7 +11,7 @@ const Story = ({ id }) => {
   const { state, actions } = React.useContext(HummContext);
   const isLoading = state.loadingStories.some((loadingId) => loadingId === id);
   const story = state.stories[id];
-  const publishedAt = story && formatDateString(story.publishedAt);
+  const publishedAt = story && formatDateString(story.content.publishedAt);
 
   React.useEffect(() => {
     if (!story && !isLoading) actions.getStory(id);
@@ -30,12 +30,12 @@ const Story = ({ id }) => {
             <>
               <SEO title={story?.title} />
               <div className="post-title">
-                <h1>{story.title}</h1>
+                <h1>{story.content.title}</h1>
               </div>
               <div className="meta d-flex pt-1 mb-3">
                 <div className="date">{publishedAt}</div>
               </div>
-              {JSON.parse(story.body).map((element, i) => (
+              {JSON.parse(story.content.body).map((element, i) => (
                 <DocumentBuilder key={i} element={element} />
               ))}
             </>

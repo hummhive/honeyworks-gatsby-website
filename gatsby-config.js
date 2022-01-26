@@ -20,17 +20,17 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `coreStaticData`,
-        path: path.resolve('config/coreStaticData'),
+        name: `hiveConfig`,
+        path: path.resolve('config/hiveConfig'),
       },
     },
     {
-  resolve: `gatsby-source-filesystem`,
-  options: {
-    name: `images`,
-    path: path.join(__dirname, `static`),
-  },
-},
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: path.join(__dirname, `static`),
+      },
+    },
     `gatsby-transformer-json`,
     `gatsby-plugin-react-helmet`,
     {

@@ -8,7 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { HummContext } from '@hummhive/gatsby-plugin-hummhive-react-web-data';
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from 'gatsby';
 import Header from '../Header';
 import Footer from '../Footer';
 import { useLocation } from '@reach/router';
@@ -22,20 +22,20 @@ const Layout = ({ children }) => {
   const { isLoggedIn } = state;
   const location = useLocation();
 
-  const { coreStaticDataJson: themeConfig } = useStaticQuery(graphql`
+  const { hiveConfigJson: themeConfig } = useStaticQuery(graphql`
     query GetThemeSettings {
-        coreStaticDataJson {
-          themeSettings {
-            color
-            logoImage
-            bannerImage
-            twitter
-            facebook
-            instagram
-            github
-          }
+      hiveConfigJson {
+        themeSettings {
+          color
+          logoImage
+          bannerImage
+          twitter
+          facebook
+          instagram
+          github
         }
       }
+    }
   `);
 
   const login = async (key) => {
@@ -62,10 +62,7 @@ const Layout = ({ children }) => {
   return (
     <div ref={bodyRef} style={{ overflow: 'hidden' }}>
       <GlobalStyle {...themeConfig} />
-      <Header
-        bodyRef={bodyRef}
-        config={themeConfig}
-      />
+      <Header bodyRef={bodyRef} config={themeConfig} />
       <main>{children}</main>
       <Footer config={themeConfig} />
     </div>

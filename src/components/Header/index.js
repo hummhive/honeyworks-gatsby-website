@@ -1,6 +1,6 @@
 import React from 'react';
-import { useStaticQuery, graphql } from "gatsby"; // to query for image data
-import { GatsbyImage } from "gatsby-plugin-image";
+import { useStaticQuery, graphql } from 'gatsby'; // to query for image data
+import { GatsbyImage } from 'gatsby-plugin-image';
 import PropTypes from 'prop-types';
 import { useSpring } from 'react-spring';
 import { useMeasure } from 'react-use';
@@ -12,7 +12,7 @@ import Join from './Join';
 import JoinSuccess from './JoinSuccess';
 import Signin from './Signin';
 import Account from './Account';
-import { HeaderContainer, AnimationWrapper, Layout2} from './styled';
+import { HeaderContainer, AnimationWrapper, Layout2 } from './styled';
 
 const Header = ({ bodyRef, config, initialStage = 0 }) => {
   const location = useLocation();
@@ -30,26 +30,26 @@ const Header = ({ bodyRef, config, initialStage = 0 }) => {
 
   const themeConfig = config?.themeSettings;
 
+  const data = useStaticQuery(graphql`
+    {
+      banner: file(relativePath: { regex: "/banner/" }) {
+        childImageSharp {
+          gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+        }
+      }
+      logoHeader: file(relativePath: { regex: "/logo/" }) {
+        childImageSharp {
+          gatsbyImageData(height: 40, layout: FIXED)
+        }
+      }
+      logoBanner: file(relativePath: { regex: "/logo/" }) {
+        childImageSharp {
+          gatsbyImageData(width: 120, height: 120, layout: FIXED)
+        }
+      }
+    }
+  `);
 
-  const data = useStaticQuery(graphql`{
-  banner: file(relativePath: {regex: "/banner/"}) {
-    childImageSharp {
-      gatsbyImageData(quality: 100, layout: FULL_WIDTH)
-    }
-  }
-  logoHeader: file(relativePath: {regex: "/logo/"}) {
-    childImageSharp {
-      gatsbyImageData(height: 40, layout: FIXED)
-    }
-  }
-  logoBanner: file(relativePath: {regex: "/logo/"}) {
-    childImageSharp {
-      gatsbyImageData(width: 120, height: 120, layout: FIXED)
-    }
-  }
-}
-`);
-  console.log(data)
   React.useEffect(() => {
     if (!groups) actions.getGroups();
   }, []);
@@ -126,100 +126,109 @@ const Header = ({ bodyRef, config, initialStage = 0 }) => {
     // delay: stage === 2 ? 200 : 0,
   });
 
-  return <>
-    <HeaderContainer style={containerSpring} height={baseSize.height} stage={stage}>
-      <Base
-        ref={baseRef}
-        logo={data.logoHeader}
-        isLoggedIn={isLoggedIn}
-        hive={hive}
-        location={location}
-        activeStage={stage}
-        setStage={setStage}
-        config={themeConfig}
-      />
-      {/* <AnimationWrapper
+  return (
+    <>
+      <HeaderContainer
+        style={containerSpring}
+        height={baseSize.height}
+        stage={stage}
+      >
+        <Base
+          ref={baseRef}
+          logo={data.logoHeader}
+          isLoggedIn={isLoggedIn}
+          hive={hive}
+          location={location}
+          activeStage={stage}
+          setStage={setStage}
+          config={themeConfig}
+        />
+        {/* <AnimationWrapper
         style={{ ...baseSpring, zIndex: stage === 0 ? 2 : 1 }}
       >
       </AnimationWrapper> */}
-      <AnimationWrapper
-        baseComponentHeight={baseSize.height}
-        className="primaryGradientBg"
-        zIndex={stage === 1 ? 2 : 1}
-        style={groupsSpring}
-      >
-        <Groups
-          ref={groupsRef}
-          hive={hive}
-          groups={groups}
-          setStage={setStage}
-        />
-      </AnimationWrapper>
-      <AnimationWrapper
-        baseComponentHeight={baseSize.height}
-        zIndex={stage === 2 ? 2 : 1}
-        style={joinSpring}
-      >
-        <Join
-          ref={joinRef}
-          hive={hive}
-          joinHive={actions.joinHive}
+        <AnimationWrapper
           baseComponentHeight={baseSize.height}
-          setStage={setStage}
-        />
-      </AnimationWrapper>
-      <AnimationWrapper
-        baseComponentHeight={baseSize.height}
-        zIndex={stage === 3 ? 2 : 1}
-        style={signinSpring}
-      >
-        <Signin
-          ref={signinRef}
-          signin={actions.login}
+          className="primaryGradientBg"
+          zIndex={stage === 1 ? 2 : 1}
+          style={groupsSpring}
+        >
+          <Groups
+            ref={groupsRef}
+            hive={hive}
+            groups={groups}
+            setStage={setStage}
+          />
+        </AnimationWrapper>
+        <AnimationWrapper
           baseComponentHeight={baseSize.height}
-          setStage={setStage}
-        />
-      </AnimationWrapper>
-      <AnimationWrapper
-        baseComponentHeight={baseSize.height}
-        zIndex={stage === 4 ? 2 : 1}
-        style={accountSpring}
-      >
-        <Account
-          ref={accountRef}
+          zIndex={stage === 2 ? 2 : 1}
+          style={joinSpring}
+        >
+          <Join
+            ref={joinRef}
+            hive={hive}
+            joinHive={actions.joinHive}
+            baseComponentHeight={baseSize.height}
+            setStage={setStage}
+          />
+        </AnimationWrapper>
+        <AnimationWrapper
           baseComponentHeight={baseSize.height}
-          setStage={setStage}
-        />
-      </AnimationWrapper>
-      <AnimationWrapper
-        baseComponentHeight={baseSize.height}
-        zIndex={stage === 5 ? 2 : 1}
-        style={joinSuccessSpring}
-      >
-        <JoinSuccess
-          ref={joinSuccessRef}
-          hive={hive}
-          secretKeyBase64={secretKeyBase64}
+          zIndex={stage === 3 ? 2 : 1}
+          style={signinSpring}
+        >
+          <Signin
+            ref={signinRef}
+            signin={actions.login}
+            baseComponentHeight={baseSize.height}
+            setStage={setStage}
+          />
+        </AnimationWrapper>
+        <AnimationWrapper
           baseComponentHeight={baseSize.height}
-          setStage={setStage}
-        />
-      </AnimationWrapper>
-    </HeaderContainer>
-    {themeConfig?.bannerImage && location.pathname === '/' && stage === 0 && (
-      <Layout2>
-    <div className="hero-image">
-    <GatsbyImage
-      image={data.banner.childImageSharp.gatsbyImageData} />
-    </div>
-    {themeConfig.logoImage && (
-      <>
-      <div className="logo-image"><GatsbyImage image={data.logoBanner.childImageSharp.gatsbyImageData} /></div>
-      <div className="logo-heading">{hive?.name}</div>
-      </>
-    )}
-    </Layout2>
-    )}
-  </>;
+          zIndex={stage === 4 ? 2 : 1}
+          style={accountSpring}
+        >
+          <Account
+            ref={accountRef}
+            baseComponentHeight={baseSize.height}
+            setStage={setStage}
+          />
+        </AnimationWrapper>
+        <AnimationWrapper
+          baseComponentHeight={baseSize.height}
+          zIndex={stage === 5 ? 2 : 1}
+          style={joinSuccessSpring}
+        >
+          <JoinSuccess
+            ref={joinSuccessRef}
+            hive={hive}
+            secretKeyBase64={secretKeyBase64}
+            baseComponentHeight={baseSize.height}
+            setStage={setStage}
+          />
+        </AnimationWrapper>
+      </HeaderContainer>
+      {themeConfig?.bannerImage && location.pathname === '/' && stage === 0 && (
+        <Layout2>
+          <div className="hero-image">
+            <GatsbyImage image={data.banner.childImageSharp.gatsbyImageData} />
+          </div>
+          {themeConfig.logoImage && (
+            <>
+              <div className="logo-image">
+                <GatsbyImage
+                  image={data.logoBanner.childImageSharp.gatsbyImageData}
+                />
+              </div>
+              <div className="logo-heading">{hive?.name}</div>
+            </>
+          )}
+        </Layout2>
+      )}
+    </>
+  );
 };
 
 Header.propTypes = {

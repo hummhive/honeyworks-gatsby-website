@@ -21,12 +21,17 @@ const Home = () => {
     <Layout>
       <SEO title="Stories" />
       <div className="readable-content container">
-        {storyIndex?.length === 0 ? (<NoPlublicContent /> ) : (
-        <h1 className="home-heading"><span>Latest stories</span></h1>
+        {storyIndex?.length === 0 ? (
+          <NoPlublicContent />
+        ) : (
+          <h1 className="home-heading">
+            <span>Latest stories</span>
+          </h1>
         )}
         <Loader isLoading={!storyIndex} size={48} color="rgba(0, 0, 0, 0.5)" />
         {storyIndex?.map((story, index) => {
           const publishedAt = formatDateString(story.publishedAt);
+          const isPublic = story.acl.some((a) => a.id === '*');
 
           return (
             <div key={story.slug} className="post">
@@ -41,8 +46,10 @@ const Home = () => {
                   : story.summary}
               </p>
               <div className="meta d-flex pt-1">
-                  <div className="date">{publishedAt}</div>
-                <div className="visibility">{story.access.isPublic ? 'Public' : 'Members'}</div>
+                <div className="date">{publishedAt}</div>
+                <div className="visibility">
+                  {isPublic ? 'Public' : 'Members'}
+                </div>
               </div>
             </div>
           );
