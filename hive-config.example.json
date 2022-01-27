@@ -1,6 +1,6 @@
 {
   "hiveId": "ZaHqC4lRVavXXptxrpacUhps8za0iCAaWcfb1PI9fiA=",
-  "adminKeys": [
+  "adminPublicKeys": [
     {
       "signing": "btAZ4CoI8K3RAzMSAbDOippP2yJASU6d6IMM1Y1lrUg=",
       "encryption": "eTPAHN6aXAT6ZAFO0a9vqRpmLxkKblNR1dzp3MxQxkE="

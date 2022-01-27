@@ -51,7 +51,7 @@ const Join = React.forwardRef(
 
         setIsLoading(true);
         await joinHive({
-          hiveAdminPublicKeys: state.hiveConfig.adminKeys.map(
+          hiveAdminPublicKeys: state.hiveConfig.adminPublicKeys.map(
             (k) => k.encryption
           ),
           username,
