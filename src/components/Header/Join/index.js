@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { navigate } from 'gatsby';
+import { HummContext } from '@hummhive/gatsby-plugin-hummhive-react-web-data';
 import { useLocation } from '@reach/router';
 import { JoinContainer, Inner, InviteTokenText } from './styled';
 import { TextInput, SubmitButton, Error } from '../styled';
@@ -8,7 +9,8 @@ import Loader from '../../Loader';
 
 // eslint-disable-next-line react/display-name
 const Join = React.forwardRef(
-  ({ hive, joinHive, baseComponentHeight, setStage }, ref) => {
+  ({ joinHive, baseComponentHeight, setStage }, ref) => {
+    const { state } = React.useContext(HummContext);
     const location = useLocation();
     const [isLoading, setIsLoading] = React.useState(false);
     const [username, setUsername] = React.useState('');
@@ -49,7 +51,9 @@ const Join = React.forwardRef(
 
         setIsLoading(true);
         await joinHive({
-          hiveEncryptionPublicKey: hive.encryptionPublicKey,
+          hiveAdminPublicKeys: state.hiveConfig.adminKeys.map(
+            (k) => k.encryption
+          ),
           username,
           email,
           inviteToken,
@@ -66,7 +70,11 @@ const Join = React.forwardRef(
     };
 
     return (
-      <JoinContainer ref={ref} baseComponentHeight={baseComponentHeight} className="primaryGradientBg">
+      <JoinContainer
+        ref={ref}
+        baseComponentHeight={baseComponentHeight}
+        className="primaryGradientBg"
+      >
         <Inner>
           {error && <Error>Error: {error}</Error>}
           <form onSubmit={handleJoin}>
