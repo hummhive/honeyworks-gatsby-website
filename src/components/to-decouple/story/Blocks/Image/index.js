@@ -4,14 +4,9 @@ import Loader from '../../../../Loader';
 import { HummHooks } from '@hummhive/gatsby-plugin-hummhive-react-web-data';
 import { Image, Container } from './styled';
 
-const path = require('path');
-
 const ImageBlock = (props) => {
-  const extension = path.extname(props.element.filename);
-  const filename = path.basename(props.element.filename, extension);
-  const variantname = `${filename}-large${extension}`;
-
-  const { blob, isLoading, error } = HummHooks.useBlob(variantname);
+  const variantHash = props.element.variantHashes.large;
+  const { blob, isLoading, error } = HummHooks.useBlob(variantHash);
 
   const [height, setHeight] = React.useState(null);
   const ref = React.useRef(null);
