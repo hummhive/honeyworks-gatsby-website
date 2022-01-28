@@ -46,8 +46,14 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
     type ThemeSettings {
       color: String
-      bannerImage: String
-      logoImage: String
+      bannerImage {
+        hash: String
+        mimeType: String
+      }
+      logoImage {
+        hash: String
+        mimeType: String
+      }
       facebook: String
       github: String
       instagram: String
