@@ -1,6 +1,6 @@
 {
   "name": "@honeyworks/reader",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "private": false,
   "module": "dist/index.js",
@@ -68,5 +68,9 @@
     "react-use": "^17.2.4",
     "regenerator-runtime": "^0.13.7",
     "resize-observer-polyfill": "^1.5.1"
+  },
+  "overrides": {
+    "graphql": "^15.4.0",
+    "graphql-compose": "^7.25.0"
   }
 }
