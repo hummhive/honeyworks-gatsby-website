@@ -56,7 +56,7 @@
     "@fontsource/nunito": "^4.2.1",
     "@fontsource/nunito-sans": "^4.5.0",
     "@fontsource/work-sans": "^4.5.1",
-    "@hummhive/gatsby-plugin-hummhive-react-web-data": "^1.0.17",
+    "@hummhive/gatsby-plugin-hummhive-react-web-data": "^1.0.18",
     "babel-plugin-styled-components": "^1.13.2",
     "gatsby-plugin-image": "^1.14.0",
     "gatsby-plugin-netlify": "^3.9.0",
