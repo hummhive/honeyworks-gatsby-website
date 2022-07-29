@@ -5,8 +5,8 @@ import { HummHooks } from '@hummhive/gatsby-plugin-hummhive-react-web-data';
 import { Image, Container } from './styled';
 
 const ImageBlock = (props) => {
-  const variantHash = props.element.variantHashes.large;
-  const { blob, isLoading, error } = HummHooks.useBlob(variantHash);
+  const variantMetadataId = props.element.variantMetadataIds.large;
+  const { blob, isLoading, error } = HummHooks.useBlob(variantMetadataId);
 
   const [height, setHeight] = React.useState(null);
   const ref = React.useRef(null);
