@@ -11,7 +11,8 @@ const Story = ({ id }) => {
   const { state, actions } = React.useContext(HummContext);
   const isLoading = state.loadingStories.some((loadingId) => loadingId === id);
   const story = state.stories[id];
-  const publishedAt = story && formatDateString(story.content.publishedAt);
+  const publishedAt =
+    story && formatDateString(story.content.publish.website.publishedAt);
 
   React.useEffect(() => {
     if (!story && !isLoading) actions.getStory(id);
