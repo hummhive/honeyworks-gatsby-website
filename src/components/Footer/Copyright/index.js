@@ -5,7 +5,7 @@ const Copyright = () => {
   const { state } = React.useContext(HummContext);
   const { hive } = state;
   return (
-    <div className="copyright">© 2022 {hive?.name} - All Rights Reserved.</div>
+    <div className="copyright">©{new Date().getFullYear()} {hive?.name} - All Rights Reserved.</div>
   );
 };
 
