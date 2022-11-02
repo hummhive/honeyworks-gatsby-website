@@ -27,14 +27,8 @@ const Layout = ({ children }) => {
       hiveConfigJson {
         themeSettings {
           color
-          logoImage {
-            hash
-            mimeType
-          }
-          bannerImage {
-            hash
-            mimeType
-          }
+          logoImage
+          bannerImage
           twitter
           facebook
           instagram
