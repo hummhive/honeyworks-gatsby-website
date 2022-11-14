@@ -227,10 +227,10 @@ const Header = ({ bodyRef, config, initialStage = 0 }) => {
                 <br />  <br />
                 <Button className="primaryBg"
                   onClick={() =>
-                    setStage(stage === 1 || stage === 2 ? 0 : 1)
+                    setStage(2)
                   }
                 >
-                  <span>{stage === 1 || stage === 2 ? 'Close' : 'Subscribe to Hive'}</span>
+                  <span>{stage === 1 || stage === 2 ? 'Close' : 'Join '}{hive?.name}</span>
                 </Button>
                 </div>
               )}

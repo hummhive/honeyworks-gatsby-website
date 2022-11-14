@@ -44,7 +44,7 @@ const Base = React.forwardRef(({ logo, location, isLoggedIn, activeStage, setSta
                 setStage(activeStage === 1 || activeStage === 2 ? 0 : 1)
               }
             >
-              <span>{activeStage === 1 || activeStage === 2 ? 'Close' : 'Subscribe to Hive'}</span>
+              <span>{activeStage === 1 || activeStage === 2 ? 'Close' : 'Join'}</span>
             </Button>
             <Button onClick={() => setStage(activeStage === 3 ? 0 : 3)} >
             <span>  {activeStage === 3 ? 'Close' : 'Sign In'}</span>
