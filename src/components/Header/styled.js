@@ -74,6 +74,11 @@ font-size: 24px;
   height: 25vw;
   overflow: hidden;
 }
+
+.join-text-home{
+  text-align: center;
+margin-top: 10px;
+}
 `;
 
 export const TextInput = styled.input`
@@ -137,4 +142,29 @@ export const Error = styled.div`
   border-radius: 32px;
   margin-bottom: 32px;
   background: #eb3a3a;
+`;
+
+export const Button = styled.button`
+  outline: none !important;
+  border: solid 2px white;
+  background: transparent;
+  padding: 8px 15px;
+  color: ${(props) => (props.location === '/' ? '#000' : "transparent")}
+  margin: 0 4px;
+  transition: all 150ms ease-in-out;
+  font-weight: 600;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: "Work Sans";
+
+  @media only screen and (min-width: 480px) and (max-width: 720px) {
+    font-size: 12px;
+    width: 112px;
+  }
+
+  @media only screen and (max-width: 480px) {
+    font-size: 14px;
+    width: 100px;
+    padding-top: 9px;
+  }
 `;

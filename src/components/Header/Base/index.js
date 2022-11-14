@@ -10,7 +10,7 @@ import {
 import { navigate } from 'gatsby';
 
 // eslint-disable-next-line react/display-name
-const Base = React.forwardRef(({ logo, isLoggedIn, activeStage, setStage, hive, config}, ref) => {
+const Base = React.forwardRef(({ logo, location, isLoggedIn, activeStage, setStage, hive, config}, ref) => {
   const handleHome = () => {
     setStage(0);
     navigate('/');
@@ -26,25 +26,29 @@ const Base = React.forwardRef(({ logo, isLoggedIn, activeStage, setStage, hive, 
           )}
         </TitleContainer>
         <ButtonsContainer>
-          <Button onClick={() => handleHome()}>
-            <span>Home</span>
+          {location.hostname === "hive.humm.earth" && (
+          <a href="https://humm.earth">
+          <Button>
+            <span>Return to Home</span>
           </Button>
+        </a>
+        )}
           {isLoggedIn ? (
             <Button className="primaryBg" onClick={() => setStage(activeStage === 4 ? 0 : 4)}>
-              <span>{activeStage === 4 ? 'Close' : 'Account'}</span>
+              <span>{activeStage === 4 ? 'Close' : 'My Account'}</span>
             </Button>
           ) : (
             <>
+            <Button className="primaryBg"
+              onClick={() =>
+                setStage(activeStage === 1 || activeStage === 2 ? 0 : 1)
+              }
+            >
+              <span>{activeStage === 1 || activeStage === 2 ? 'Close' : 'Subscribe to Hive'}</span>
+            </Button>
             <Button onClick={() => setStage(activeStage === 3 ? 0 : 3)} >
             <span>  {activeStage === 3 ? 'Close' : 'Sign In'}</span>
             </Button>
-              <Button className="primaryBg"
-                onClick={() =>
-                  setStage(activeStage === 1 || activeStage === 2 ? 0 : 1)
-                }
-              >
-                <span>{activeStage === 1 || activeStage === 2 ? 'Close' : 'Join'}</span>
-              </Button>
             </>
           )}
         </ButtonsContainer>

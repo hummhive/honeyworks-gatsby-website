@@ -12,7 +12,7 @@ import Join from './Join';
 import JoinSuccess from './JoinSuccess';
 import Signin from './Signin';
 import Account from './Account';
-import { HeaderContainer, AnimationWrapper, Layout2 } from './styled';
+import { HeaderContainer, AnimationWrapper, Layout2, Button } from './styled';
 
 const Header = ({ bodyRef, config, initialStage = 0 }) => {
   const location = useLocation();
@@ -20,7 +20,6 @@ const Header = ({ bodyRef, config, initialStage = 0 }) => {
   const { hive, groups, secretKeyBase64, isLoggedIn } = state;
   const [didInit, setDidInit] = React.useState(false);
   const [stage, setStage] = React.useState(initialStage);
-
   const [baseRef, baseSize] = useMeasure();
   const [groupsRef, groupsSize] = useMeasure();
   const [joinRef, joinSize] = useMeasure();
@@ -223,6 +222,18 @@ const Header = ({ bodyRef, config, initialStage = 0 }) => {
                 />
               </div>
               <div className="logo-heading">{hive?.name}</div>
+              {!isLoggedIn && (
+              <div className="join-text-home">{hive?.joinText}
+                <br />  <br />
+                <Button className="primaryBg"
+                  onClick={() =>
+                    setStage(stage === 1 || stage === 2 ? 0 : 1)
+                  }
+                >
+                  <span>{stage === 1 || stage === 2 ? 'Close' : 'Subscribe to Hive'}</span>
+                </Button>
+                </div>
+              )}
             </>
           )}
         </Layout2>
